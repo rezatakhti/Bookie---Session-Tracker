@@ -1,0 +1,358 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6C7AA0CA221537C600E82C8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AA0C9221537C600E82C8E /* AppDelegate.swift */; };
+		6C7AA0CC221537C600E82C8E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AA0CB221537C600E82C8E /* ViewController.swift */; };
+		6C7AA0CF221537C600E82C8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C7AA0CD221537C600E82C8E /* Main.storyboard */; };
+		6C7AA0D2221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AA0D0221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld */; };
+		6C7AA0D4221537C800E82C8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C7AA0D3221537C800E82C8E /* Assets.xcassets */; };
+		6C7AA0D7221537C800E82C8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C7AA0D5221537C800E82C8E /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6C7AA0C6221537C600E82C8E /* Bookie - Session Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bookie - Session Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C7AA0C9221537C600E82C8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6C7AA0CB221537C600E82C8E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6C7AA0CE221537C600E82C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6C7AA0D1221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Bookie___Session_Tracker.xcdatamodel"; sourceTree = "<group>"; };
+		6C7AA0D3221537C800E82C8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6C7AA0D6221537C800E82C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6C7AA0D8221537C800E82C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6C7AA0C3221537C600E82C8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6C7AA0BD221537C600E82C8E = {
+			isa = PBXGroup;
+			children = (
+				6C7AA0C8221537C600E82C8E /* Bookie - Session Tracker */,
+				6C7AA0C7221537C600E82C8E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6C7AA0C7221537C600E82C8E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6C7AA0C6221537C600E82C8E /* Bookie - Session Tracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6C7AA0C8221537C600E82C8E /* Bookie - Session Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				6C7AA0C9221537C600E82C8E /* AppDelegate.swift */,
+				6C7AA0CB221537C600E82C8E /* ViewController.swift */,
+				6C7AA0CD221537C600E82C8E /* Main.storyboard */,
+				6C7AA0D3221537C800E82C8E /* Assets.xcassets */,
+				6C7AA0D5221537C800E82C8E /* LaunchScreen.storyboard */,
+				6C7AA0D8221537C800E82C8E /* Info.plist */,
+				6C7AA0D0221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld */,
+			);
+			path = "Bookie - Session Tracker";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6C7AA0C5221537C600E82C8E /* Bookie - Session Tracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C7AA0DB221537C800E82C8E /* Build configuration list for PBXNativeTarget "Bookie - Session Tracker" */;
+			buildPhases = (
+				6C7AA0C2221537C600E82C8E /* Sources */,
+				6C7AA0C3221537C600E82C8E /* Frameworks */,
+				6C7AA0C4221537C600E82C8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bookie - Session Tracker";
+			productName = "Bookie - Session Tracker";
+			productReference = 6C7AA0C6221537C600E82C8E /* Bookie - Session Tracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6C7AA0BE221537C600E82C8E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Reza Takhti";
+				TargetAttributes = {
+					6C7AA0C5221537C600E82C8E = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 6C7AA0C1221537C600E82C8E /* Build configuration list for PBXProject "Bookie - Session Tracker" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6C7AA0BD221537C600E82C8E;
+			productRefGroup = 6C7AA0C7221537C600E82C8E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6C7AA0C5221537C600E82C8E /* Bookie - Session Tracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6C7AA0C4221537C600E82C8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C7AA0D7221537C800E82C8E /* LaunchScreen.storyboard in Resources */,
+				6C7AA0D4221537C800E82C8E /* Assets.xcassets in Resources */,
+				6C7AA0CF221537C600E82C8E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6C7AA0C2221537C600E82C8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C7AA0CC221537C600E82C8E /* ViewController.swift in Sources */,
+				6C7AA0CA221537C600E82C8E /* AppDelegate.swift in Sources */,
+				6C7AA0D2221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		6C7AA0CD221537C600E82C8E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6C7AA0CE221537C600E82C8E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		6C7AA0D5221537C800E82C8E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6C7AA0D6221537C800E82C8E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6C7AA0D9221537C800E82C8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6C7AA0DA221537C800E82C8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6C7AA0DC221537C800E82C8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5BCF277R26;
+				INFOPLIST_FILE = "Bookie - Session Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.reza.Bookie---Session-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6C7AA0DD221537C800E82C8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5BCF277R26;
+				INFOPLIST_FILE = "Bookie - Session Tracker/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.reza.Bookie---Session-Tracker";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6C7AA0C1221537C600E82C8E /* Build configuration list for PBXProject "Bookie - Session Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C7AA0D9221537C800E82C8E /* Debug */,
+				6C7AA0DA221537C800E82C8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6C7AA0DB221537C800E82C8E /* Build configuration list for PBXNativeTarget "Bookie - Session Tracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C7AA0DC221537C800E82C8E /* Debug */,
+				6C7AA0DD221537C800E82C8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6C7AA0D0221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6C7AA0D1221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodel */,
+			);
+			currentVersion = 6C7AA0D1221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodel */;
+			path = "Bookie___Session_Tracker.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 6C7AA0BE221537C600E82C8E /* Project object */;
+}
