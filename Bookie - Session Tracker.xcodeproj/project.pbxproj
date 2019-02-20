@@ -7,15 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C41452F221BD185003D1DCD /* NewSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C41452E221BD185003D1DCD /* NewSessionViewController.swift */; };
+		6C414531221BD3E6003D1DCD /* PastSessionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C414530221BD3E6003D1DCD /* PastSessionsTableViewController.swift */; };
+		6C414533221C7626003D1DCD /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C414532221C7626003D1DCD /* CustomButton.swift */; };
+		6C414536221D2AE2003D1DCD /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C414535221D2AE2003D1DCD /* CustomTextField.swift */; };
 		6C7AA0CA221537C600E82C8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AA0C9221537C600E82C8E /* AppDelegate.swift */; };
 		6C7AA0CC221537C600E82C8E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AA0CB221537C600E82C8E /* MainViewController.swift */; };
 		6C7AA0CF221537C600E82C8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C7AA0CD221537C600E82C8E /* Main.storyboard */; };
 		6C7AA0D2221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AA0D0221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld */; };
 		6C7AA0D4221537C800E82C8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C7AA0D3221537C800E82C8E /* Assets.xcassets */; };
 		6C7AA0D7221537C800E82C8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C7AA0D5221537C800E82C8E /* LaunchScreen.storyboard */; };
+		C78096640F8AA5D6CD9DE553 /* Pods_Bookie___Session_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8019729F7AE996E9718B22DA /* Pods_Bookie___Session_Tracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C41452E221BD185003D1DCD /* NewSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionViewController.swift; sourceTree = "<group>"; };
+		6C414530221BD3E6003D1DCD /* PastSessionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastSessionsTableViewController.swift; sourceTree = "<group>"; };
+		6C414532221C7626003D1DCD /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		6C414535221D2AE2003D1DCD /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		6C7AA0C6221537C600E82C8E /* Bookie - Session Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bookie - Session Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7AA0C9221537C600E82C8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C7AA0CB221537C600E82C8E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +33,9 @@
 		6C7AA0D3221537C800E82C8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C7AA0D6221537C800E82C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C7AA0D8221537C800E82C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A6C5BABBD08CDFB9FB81C7E /* Pods-Bookie - Session Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookie - Session Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bookie - Session Tracker/Pods-Bookie - Session Tracker.release.xcconfig"; sourceTree = "<group>"; };
+		8019729F7AE996E9718B22DA /* Pods_Bookie___Session_Tracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Pods_Bookie___Session_Tracker.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88FD1B15891E222185FC1CB2 /* Pods-Bookie - Session Tracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookie - Session Tracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bookie - Session Tracker/Pods-Bookie - Session Tracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C78096640F8AA5D6CD9DE553 /* Pods_Bookie___Session_Tracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C414534221C7635003D1DCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6C414535221D2AE2003D1DCD /* CustomTextField.swift */,
+				6C414532221C7626003D1DCD /* CustomButton.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		6C7AA0BD221537C600E82C8E = {
 			isa = PBXGroup;
 			children = (
 				6C7AA0C8221537C600E82C8E /* Bookie - Session Tracker */,
 				6C7AA0C7221537C600E82C8E /* Products */,
+				EE063F7F8E6DA6693ADCD188 /* Pods */,
+				786034ED4F39BBBAA2E4E630 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +83,7 @@
 				6C7AA0C9221537C600E82C8E /* AppDelegate.swift */,
 				6C7AA0DE221600DC00E82C8E /* Controller */,
 				6C7AA0CD221537C600E82C8E /* Main.storyboard */,
+				6C414534221C7635003D1DCD /* Model */,
 				6C7AA0D3221537C800E82C8E /* Assets.xcassets */,
 				6C7AA0D5221537C800E82C8E /* LaunchScreen.storyboard */,
 				6C7AA0D8221537C800E82C8E /* Info.plist */,
@@ -71,8 +96,27 @@
 			isa = PBXGroup;
 			children = (
 				6C7AA0CB221537C600E82C8E /* MainViewController.swift */,
+				6C41452E221BD185003D1DCD /* NewSessionViewController.swift */,
+				6C414530221BD3E6003D1DCD /* PastSessionsTableViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		786034ED4F39BBBAA2E4E630 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8019729F7AE996E9718B22DA /* Pods_Bookie___Session_Tracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE063F7F8E6DA6693ADCD188 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88FD1B15891E222185FC1CB2 /* Pods-Bookie - Session Tracker.debug.xcconfig */,
+				7A6C5BABBD08CDFB9FB81C7E /* Pods-Bookie - Session Tracker.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,9 +126,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6C7AA0DB221537C800E82C8E /* Build configuration list for PBXNativeTarget "Bookie - Session Tracker" */;
 			buildPhases = (
+				A178F54F0EBE3D337DA8EE59 /* [CP] Check Pods Manifest.lock */,
 				6C7AA0C2221537C600E82C8E /* Sources */,
 				6C7AA0C3221537C600E82C8E /* Frameworks */,
 				6C7AA0C4221537C600E82C8E /* Resources */,
+				B709AA9EDD0D1A1BE17D60BB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,13 +187,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A178F54F0EBE3D337DA8EE59 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Bookie - Session Tracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B709AA9EDD0D1A1BE17D60BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Bookie - Session Tracker/Pods-Bookie - Session Tracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Bookie - Session Tracker/Pods-Bookie - Session Tracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6C7AA0C2221537C600E82C8E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C414536221D2AE2003D1DCD /* CustomTextField.swift in Sources */,
 				6C7AA0CC221537C600E82C8E /* MainViewController.swift in Sources */,
+				6C414531221BD3E6003D1DCD /* PastSessionsTableViewController.swift in Sources */,
+				6C414533221C7626003D1DCD /* CustomButton.swift in Sources */,
 				6C7AA0CA221537C600E82C8E /* AppDelegate.swift in Sources */,
+				6C41452F221BD185003D1DCD /* NewSessionViewController.swift in Sources */,
 				6C7AA0D2221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +389,7 @@
 		};
 		6C7AA0DC221537C800E82C8E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88FD1B15891E222185FC1CB2 /* Pods-Bookie - Session Tracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -310,6 +408,7 @@
 		};
 		6C7AA0DD221537C800E82C8E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A6C5BABBD08CDFB9FB81C7E /* Pods-Bookie - Session Tracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

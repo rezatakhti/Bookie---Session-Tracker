@@ -91,11 +91,94 @@
                     <connections>
                         <outlet property="newSessionImageView" destination="BUF-Ri-Fwe" id="gCJ-nx-Rlq"/>
                         <outlet property="pastSessionsImageView" destination="LTl-1P-xgL" id="aRN-Ky-akA"/>
+                        <segue destination="E0l-bN-Buj" kind="show" identifier="goToNewSession" id="2cJ-tk-8hn"/>
+                        <segue destination="Xmv-9C-728" kind="show" identifier="goToPastSessions" id="Rdi-Ww-PEh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="712.79999999999995" y="132.26600985221674"/>
+        </scene>
+        <!--Past Sessions Table View Controller-->
+        <scene sceneID="K55-54-eGp">
+            <objects>
+                <tableViewController id="Xmv-9C-728" customClass="PastSessionsTableViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QrQ-fm-mms">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KmO-5Y-3BG">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KmO-5Y-3BG" id="C5O-ol-DV1">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Xmv-9C-728" id="9XX-88-ewE"/>
+                            <outlet property="delegate" destination="Xmv-9C-728" id="hdX-q8-RJL"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7PS-9q-XKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="597"/>
+        </scene>
+        <!--New Session View Controller-->
+        <scene sceneID="qAI-Yh-QCo">
+            <objects>
+                <viewController id="E0l-bN-Buj" customClass="NewSessionViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hp8-2Y-Uut">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o83-Dc-AMt" customClass="CustomButton" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="30" y="792" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="h5X-HM-cPB"/>
+                                </constraints>
+                                <state key="normal" title="Start"/>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y9A-Mw-ql7" customClass="CustomTextField" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="30" y="677" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cQ3-fx-axS"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LxT-e4-0pY" customClass="CustomTextField" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="30" y="617" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="jTl-2t-AIp"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LxT-e4-0pY" firstAttribute="leading" secondItem="oE5-Xh-cpf" secondAttribute="leading" constant="30" id="2Lq-5i-gOa"/>
+                            <constraint firstItem="oE5-Xh-cpf" firstAttribute="bottom" secondItem="o83-Dc-AMt" secondAttribute="bottom" constant="20" id="6x9-Se-Jsn"/>
+                            <constraint firstItem="o83-Dc-AMt" firstAttribute="top" secondItem="y9A-Mw-ql7" secondAttribute="bottom" constant="65" id="JDW-jL-i7Y"/>
+                            <constraint firstItem="oE5-Xh-cpf" firstAttribute="trailing" secondItem="LxT-e4-0pY" secondAttribute="trailing" constant="30" id="RFg-gQ-e2O"/>
+                            <constraint firstItem="oE5-Xh-cpf" firstAttribute="trailing" secondItem="o83-Dc-AMt" secondAttribute="trailing" constant="30" id="SFN-YN-Zvx"/>
+                            <constraint firstItem="oE5-Xh-cpf" firstAttribute="trailing" secondItem="y9A-Mw-ql7" secondAttribute="trailing" constant="30" id="X2Z-1H-wL8"/>
+                            <constraint firstItem="o83-Dc-AMt" firstAttribute="leading" secondItem="oE5-Xh-cpf" secondAttribute="leading" constant="30" id="bgf-7k-etC"/>
+                            <constraint firstItem="y9A-Mw-ql7" firstAttribute="top" secondItem="LxT-e4-0pY" secondAttribute="bottom" constant="10" id="mLe-yh-G8i"/>
+                            <constraint firstItem="y9A-Mw-ql7" firstAttribute="leading" secondItem="oE5-Xh-cpf" secondAttribute="leading" constant="30" id="ry0-iI-JrI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oE5-Xh-cpf"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TF0-DS-LnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1750.7246376811595" y="-115.17857142857142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wH7-Ci-qzX">
