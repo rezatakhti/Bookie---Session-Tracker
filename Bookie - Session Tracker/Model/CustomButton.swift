@@ -20,7 +20,7 @@ class CustomButton: UIButton{
     }
     
     func setupButton(){
-     //   setShadow()
+       setShadow()
         setTitleColor(.white, for: .normal)
         
         backgroundColor = UIColor.flatLime() //()?.darken(byPercentage: 0.15)
@@ -30,13 +30,13 @@ class CustomButton: UIButton{
         layer.borderColor = UIColor.darkGray.cgColor
     }
     
-//    private func setShadow(){
-//        layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
-//        layer.shadowRadius = 10
-//        layer.shadowOpacity = 0.5
-//        clipsToBounds = true
-//        layer.masksToBounds = false
-//    }
+    private func setShadow(){
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
+        layer.shadowRadius = 10
+        layer.shadowOpacity = 0.5
+        clipsToBounds = true
+        layer.masksToBounds = false
+    }
 
 }

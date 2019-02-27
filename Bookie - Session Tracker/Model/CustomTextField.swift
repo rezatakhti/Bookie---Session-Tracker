@@ -19,6 +19,7 @@ class CustomTextField: UITextField {
     required init?(coder aDecoder: NSCoder) {
         super.init( coder: aDecoder )
         setUpField()
+        setShadow()
     }
     
     
@@ -40,5 +41,14 @@ class CustomTextField: UITextField {
         let indentView        = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         leftView              = indentView
         leftViewMode          = .always
+    }
+    
+    private func setShadow(){
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
+        layer.shadowRadius = 10
+        layer.shadowOpacity = 0.5
+        clipsToBounds = true
+        layer.masksToBounds = false
     }
 }

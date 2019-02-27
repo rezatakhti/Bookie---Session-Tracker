@@ -8,15 +8,21 @@
 
 import UIKit
 
-class NewSessionViewController: UIViewController {
+class NewSessionViewController: UIViewController, UITextFieldDelegate {
 
     let backgroundImageView = UIImageView()
+    
+    @IBOutlet var bookNameTextField: CustomTextField!
+    @IBOutlet var pageNumTextField: CustomTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
         
-        
+        //setting the delegate of the text field
+        bookNameTextField.delegate = self
+        pageNumTextField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil);
         // Do any additional setup after loading the view.
     }
     
@@ -33,6 +39,30 @@ class NewSessionViewController: UIViewController {
         backgroundImageView.superview?.sendSubviewToBack(backgroundImageView)
     }
 
+    //MARK: - TextField Delegate Methods
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//
+//        UIView.animate(withDuration: 0.5) {
+//            self.view.frame.origin.y = -28
+//            self.view.layoutIfNeeded()
+//        }
+//    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+
+        let info = notification.userInfo!
+        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+
+        UIView.animate(withDuration: 0.1) {
+            self.view.frame.origin.y =  -keyboardFrame.size.height
+            self.view.layoutIfNeeded()
+        }
+
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+    }
     /*
     // MARK: - Navigation
 
