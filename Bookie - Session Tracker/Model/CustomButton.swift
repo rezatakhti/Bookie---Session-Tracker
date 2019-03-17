@@ -8,7 +8,9 @@
 
 import UIKit
 import ChameleonFramework
+
 class CustomButton: UIButton{
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupButton()

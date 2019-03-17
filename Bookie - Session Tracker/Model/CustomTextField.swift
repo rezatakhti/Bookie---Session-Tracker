@@ -25,7 +25,7 @@ class CustomTextField: UITextField {
     
     private func setUpField() {
         tintColor             = .white
-        textColor             = .darkGray
+        textColor             = .white
         font                  = UIFont(name: "AvenirNext-Demi", size: 18)
         backgroundColor       = UIColor(white: 1.0, alpha: 0.5)
         autocorrectionType    = .no

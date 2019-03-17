@@ -141,6 +141,9 @@
                                     <constraint firstAttribute="height" constant="50" id="h5X-HM-cPB"/>
                                 </constraints>
                                 <state key="normal" title="Start"/>
+                                <connections>
+                                    <segue destination="jyH-tR-2OX" kind="show" identifier="startSessionClicked" id="fLP-dy-8tO"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y9A-Mw-ql7" customClass="CustomTextField" customModule="Bookie___Session_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="30" y="482" width="315" height="50"/>
@@ -183,6 +186,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TF0-DS-LnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1750.7246376811595" y="-115.17857142857142"/>
+        </scene>
+        <!--During Session View Controller-->
+        <scene sceneID="B0E-Ok-sL2">
+            <objects>
+                <viewController id="jyH-tR-2OX" customClass="DuringSessionViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pjq-uB-OPK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIL-iw-ee6" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="48" y="223" width="272" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zQG-bE-1MI" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="48" y="269" width="272" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01X-L1-7ZW" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="48" y="318" width="272" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Jut-Fh-I9z"/>
+                    </view>
+                    <connections>
+                        <outlet property="bookTitleLabel" destination="zQG-bE-1MI" id="Q6y-tq-uhr"/>
+                        <outlet property="currentTime" destination="01X-L1-7ZW" id="4hY-t4-Y8r"/>
+                        <outlet property="pageNumberLabel" destination="YIL-iw-ee6" id="wi0-1G-KVg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBm-9e-cjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2645.5999999999999" y="-119.1904047976012"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wH7-Ci-qzX">

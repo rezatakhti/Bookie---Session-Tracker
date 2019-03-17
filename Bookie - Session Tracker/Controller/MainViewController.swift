@@ -24,6 +24,8 @@ class MainViewController: UIViewController {
         pastSessionsImageView.isUserInteractionEnabled = true
     }
     
+    
+        
 //    @objc func imageTapped(gesture: UIGestureRecognizer){
 //        // if the tapped view is a UIImageView then set it to imageview
 //        if(gesture.view as? UIImageView) != nil{
