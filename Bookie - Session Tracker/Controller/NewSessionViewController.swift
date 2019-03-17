@@ -12,11 +12,12 @@ import UIKit
 
 class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNewSessionDelegate {
     
-    
+   
     let backgroundImageView = UIImageView()
     
     @IBOutlet var bookNameTextField: CustomTextField!
     @IBOutlet var pageNumTextField: CustomTextField!
+    @IBOutlet var startButton: CustomButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,17 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
         bookNameTextField.placeholder = "Book Name Here"
         pageNumTextField.placeholder = "Page Number Here"
         self.pageNumTextField.keyboardType = UIKeyboardType.numberPad
+         let Tap = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
+        view.addGestureRecognizer(Tap)
+        
+        
+    }
+    @IBAction func startButtonPressed(_ sender: Any) {
+        
+    }
+    
+    @objc func DismissKeyboard(){
+        view.endEditing(true)
     }
     
     func setBackground(){
@@ -86,6 +98,8 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
         
     }
     
+     // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startSessionClicked"{
             let destinationVC = segue.destination as! DuringSessionViewController
@@ -111,14 +125,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
             destinationVC.date = String(year) + "-" + String(month) + "-" + String(day) + " " + String(hour) + ":" + String(minutes) + timeOfDay
         }
     }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+ 
 }

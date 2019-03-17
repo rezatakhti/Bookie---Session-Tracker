@@ -28,7 +28,7 @@ class CustomTextField: UITextField {
         textColor             = .white
         font                  = UIFont(name: "AvenirNext-Demi", size: 18)
         backgroundColor       = UIColor(white: 1.0, alpha: 0.5)
-        autocorrectionType    = .no
+        autocorrectionType    = .yes
         layer.cornerRadius    = 15.0
         clipsToBounds         = true
         
@@ -38,7 +38,7 @@ class CustomTextField: UITextField {
             [NSAttributedString.Key.foregroundColor: UIColor.lightGray,
              NSAttributedString.Key.font: placeholderFont])
         
-        let indentView        = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let indentView        = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         leftView              = indentView
         leftViewMode          = .always
     }
