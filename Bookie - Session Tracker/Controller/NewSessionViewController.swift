@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import CoreData
 
 
 class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNewSessionDelegate {
@@ -34,6 +34,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
         self.pageNumTextField.keyboardType = UIKeyboardType.numberPad
          let Tap = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
         view.addGestureRecognizer(Tap)
+        
         
         
     }
@@ -115,14 +116,23 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
             var hour = calendar.component(.hour, from: date)
             let minutes = calendar.component(.minute, from: date)
             var timeOfDay = "AM"
+            var stringMinute : String = ""
             
             if(hour > 12)
             {
                 hour -= 12
                 timeOfDay = "PM"
             }
+            if(minutes < 10){
+                stringMinute = "0" + String(minutes)
+            } else{
+            stringMinute = String(minutes)
+            }
             
-            destinationVC.date = String(year) + "-" + String(month) + "-" + String(day) + " " + String(hour) + ":" + String(minutes) + timeOfDay
+            let startTime = String(year) + "-" + String(month) + "-" + String(day) + " " + String(hour) + ":" + stringMinute + timeOfDay
+            destinationVC.date = "Start time: " + startTime
+            
+          
         }
     }
     

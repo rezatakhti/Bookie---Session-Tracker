@@ -26,6 +26,10 @@ class DuringSessionViewController: UIViewController {
     
     let backgroundImageView = UIImageView()
     
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
@@ -39,7 +43,18 @@ class DuringSessionViewController: UIViewController {
         let Tap = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
         view.addGestureRecognizer(Tap)
         
-    
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+        let newReadingSession = CurrentSession(context: context)
+        newReadingSession.bookTitle = bookTitle
+        newReadingSession.pageNumber = Int64(pageNumber)
+        newReadingSession.startTime = date
+        newReadingSession.endTime = ""
+        do {
+            try context.save()
+        } catch {
+            print("Error saving context \(error)")
+        }
         
     }
     

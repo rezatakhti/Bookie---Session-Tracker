@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C3905432241AB350015FEFA /* DuringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3905422241AB350015FEFA /* DuringSessionViewController.swift */; };
+		6C3905462241AB570015FEFA /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C3905442241AB570015FEFA /* DataModel.xcdatamodeld */; };
 		6C41452F221BD185003D1DCD /* NewSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C41452E221BD185003D1DCD /* NewSessionViewController.swift */; };
 		6C414531221BD3E6003D1DCD /* PastSessionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C414530221BD3E6003D1DCD /* PastSessionsTableViewController.swift */; };
 		6C414533221C7626003D1DCD /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C414532221C7626003D1DCD /* CustomButton.swift */; };
@@ -14,16 +16,16 @@
 		6C7AA0CA221537C600E82C8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AA0C9221537C600E82C8E /* AppDelegate.swift */; };
 		6C7AA0CC221537C600E82C8E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AA0CB221537C600E82C8E /* MainViewController.swift */; };
 		6C7AA0CF221537C600E82C8E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C7AA0CD221537C600E82C8E /* Main.storyboard */; };
-		6C7AA0D2221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6C7AA0D0221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld */; };
 		6C7AA0D4221537C800E82C8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C7AA0D3221537C800E82C8E /* Assets.xcassets */; };
 		6C7AA0D7221537C800E82C8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C7AA0D5221537C800E82C8E /* LaunchScreen.storyboard */; };
-		6C85B4FF223B7A5D0071EAF6 /* DuringSessionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C85B4FE223B7A5D0071EAF6 /* DuringSessionViewController.swift */; };
 		6CAB33A5223CB5BE00AC4985 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CAB33A4223CB5BE00AC4985 /* CustomLabel.swift */; };
 		6CFE7E5F223DEEF900B9D25F /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFE7E5E223DEEF900B9D25F /* CustomTextView.swift */; };
 		C78096640F8AA5D6CD9DE553 /* Pods_Bookie___Session_Tracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8019729F7AE996E9718B22DA /* Pods_Bookie___Session_Tracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C3905422241AB350015FEFA /* DuringSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DuringSessionViewController.swift; path = "/Users/rezatakhti/Documents/App Development/Bookie - Session Tracker/Bookie - Session Tracker/Controller/DuringSessionViewController.swift"; sourceTree = "<absolute>"; };
+		6C3905452241AB570015FEFA /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		6C41452E221BD185003D1DCD /* NewSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSessionViewController.swift; sourceTree = "<group>"; };
 		6C414530221BD3E6003D1DCD /* PastSessionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastSessionsTableViewController.swift; sourceTree = "<group>"; };
 		6C414532221C7626003D1DCD /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -32,11 +34,9 @@
 		6C7AA0C9221537C600E82C8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C7AA0CB221537C600E82C8E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6C7AA0CE221537C600E82C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6C7AA0D1221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Bookie___Session_Tracker.xcdatamodel"; sourceTree = "<group>"; };
 		6C7AA0D3221537C800E82C8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C7AA0D6221537C800E82C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6C7AA0D8221537C800E82C8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6C85B4FE223B7A5D0071EAF6 /* DuringSessionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DuringSessionViewController.swift; path = "/Users/rezatakhti/Documents/App Development/Bookie - Session Tracker/Bookie - Session Tracker/Controller/DuringSessionViewController.swift"; sourceTree = "<absolute>"; };
 		6CAB33A4223CB5BE00AC4985 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		6CFE7E5E223DEEF900B9D25F /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		7A6C5BABBD08CDFB9FB81C7E /* Pods-Bookie - Session Tracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bookie - Session Tracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bookie - Session Tracker/Pods-Bookie - Session Tracker.release.xcconfig"; sourceTree = "<group>"; };
@@ -59,6 +59,7 @@
 		6C414534221C7635003D1DCD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6C3905442241AB570015FEFA /* DataModel.xcdatamodeld */,
 				6C414535221D2AE2003D1DCD /* CustomTextField.swift */,
 				6CFE7E5E223DEEF900B9D25F /* CustomTextView.swift */,
 				6CAB33A4223CB5BE00AC4985 /* CustomLabel.swift */,
@@ -95,7 +96,6 @@
 				6C7AA0D3221537C800E82C8E /* Assets.xcassets */,
 				6C7AA0D5221537C800E82C8E /* LaunchScreen.storyboard */,
 				6C7AA0D8221537C800E82C8E /* Info.plist */,
-				6C7AA0D0221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld */,
 			);
 			path = "Bookie - Session Tracker";
 			sourceTree = "<group>";
@@ -106,7 +106,7 @@
 				6C7AA0CB221537C600E82C8E /* MainViewController.swift */,
 				6C41452E221BD185003D1DCD /* NewSessionViewController.swift */,
 				6C414530221BD3E6003D1DCD /* PastSessionsTableViewController.swift */,
-				6C85B4FE223B7A5D0071EAF6 /* DuringSessionViewController.swift */,
+				6C3905422241AB350015FEFA /* DuringSessionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -248,16 +248,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C85B4FF223B7A5D0071EAF6 /* DuringSessionViewController.swift in Sources */,
 				6CAB33A5223CB5BE00AC4985 /* CustomLabel.swift in Sources */,
+				6C3905462241AB570015FEFA /* DataModel.xcdatamodeld in Sources */,
 				6C414536221D2AE2003D1DCD /* CustomTextField.swift in Sources */,
 				6C7AA0CC221537C600E82C8E /* MainViewController.swift in Sources */,
 				6C414531221BD3E6003D1DCD /* PastSessionsTableViewController.swift in Sources */,
 				6C414533221C7626003D1DCD /* CustomButton.swift in Sources */,
 				6CFE7E5F223DEEF900B9D25F /* CustomTextView.swift in Sources */,
 				6C7AA0CA221537C600E82C8E /* AppDelegate.swift in Sources */,
+				6C3905432241AB350015FEFA /* DuringSessionViewController.swift in Sources */,
 				6C41452F221BD185003D1DCD /* NewSessionViewController.swift in Sources */,
-				6C7AA0D2221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +413,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.reza.Bookie---Session-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -432,6 +433,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.reza.Bookie---Session-Tracker";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENABLE_BATCH_MODE = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -461,13 +463,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		6C7AA0D0221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodeld */ = {
+		6C3905442241AB570015FEFA /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				6C7AA0D1221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodel */,
+				6C3905452241AB570015FEFA /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 6C7AA0D1221537C600E82C8E /* Bookie___Session_Tracker.xcdatamodel */;
-			path = "Bookie___Session_Tracker.xcdatamodeld";
+			currentVersion = 6C3905452241AB570015FEFA /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
