@@ -15,6 +15,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         // Do any additional setup after loading the view, typically from a nib.
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MainViewController.imageTapped(gesture:)))
 //        newSessionImageView.addGestureRecognizer(tapGesture)

@@ -12,7 +12,7 @@ import CoreData
 
 class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNewSessionDelegate {
     
-   
+    
     let backgroundImageView = UIImageView()
     
     @IBOutlet var bookNameTextField: CustomTextField!
@@ -32,7 +32,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
         bookNameTextField.placeholder = "Book Name Here"
         pageNumTextField.placeholder = "Page Number Here"
         self.pageNumTextField.keyboardType = UIKeyboardType.numberPad
-         let Tap = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
+        let Tap = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
         view.addGestureRecognizer(Tap)
         
         
@@ -99,14 +99,22 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
         
     }
     
-     // MARK: - Navigation
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "startSessionClicked"{
             let destinationVC = segue.destination as! DuringSessionViewController
             destinationVC.delegate = self
-            destinationVC.bookTitle = bookNameTextField.text!
-            destinationVC.pageNumber = Int(pageNumTextField.text!)!
+            //adding in error checking and ensuring book title and start page are not empty
+            if let bookTitle = bookNameTextField.text, !bookTitle.isEmpty, let pageNumber = pageNumTextField.text, !pageNumber.isEmpty{
+                destinationVC.bookTitle = bookTitle
+                destinationVC.pageNumber = Int(pageNumber)!
+            }else{
+                let alert = UIAlertController(title: "Error", message: "Book title and starting page number are required", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Okay", style: .default)
+                alert.addAction(action)
+                present(alert,animated: true, completion: nil)
+            }
             
             let date = Date()
             let calendar = Calendar.current
@@ -126,15 +134,27 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
             if(minutes < 10){
                 stringMinute = "0" + String(minutes)
             } else{
-            stringMinute = String(minutes)
+                stringMinute = String(minutes)
             }
             
             let startTime = String(year) + "-" + String(month) + "-" + String(day) + " " + String(hour) + ":" + stringMinute + timeOfDay
-            destinationVC.date = "Start time: " + startTime
+            destinationVC.date = startTime
             
-          
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            
+            
+            let newReadingSession = CurrentSession(context: context)
+            newReadingSession.bookTitle = destinationVC.bookTitle
+            newReadingSession.pageNumber = Int64(destinationVC.pageNumber)
+            newReadingSession.startTime = destinationVC.date
+            newReadingSession.endTime = ""
+            do {
+                try context.save()
+            } catch {
+                print("Error saving context \(error)")
+            }
         }
     }
     
- 
+    
 }

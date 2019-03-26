@@ -6,14 +6,17 @@
 //
 
 import UIKit
+import CoreData
 
 protocol startNewSessionDelegate{
     func userEnteredBookInfo(pageNum: Int, bookTitle: String)
 }
 
 class DuringSessionViewController: UIViewController {
-    
     var delegate : startNewSessionDelegate?
+    var currentSessionArray = [CurrentSession]()
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet var summaryTextView: UITextView!
     @IBOutlet var pageNumberLabel: CustomLabel!
@@ -28,14 +31,32 @@ class DuringSessionViewController: UIViewController {
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
+        //loading item with matching date in order to add end date and optional summary
+        let request : NSFetchRequest<CurrentSession> = CurrentSession.fetchRequest()
+        let predicate = NSPredicate(format: "startTime MATCHES %@", date)
+        request.predicate = predicate
+        loadItems(with: request)
+        
+        let currentSession = currentSessionArray[0]
+        if let summaryText = summaryTextView.text {
+            currentSession.summary = summaryText
+        }
+        currentSession.endTime = getCurrentTime()
+        saveItems()
+        
+        let alert = UIAlertController(title: "Save Complete", message: "Reading Session has been recorded.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Okay", style: .default)
+        alert.addAction(action)
+        present(alert,animated: true, completion: nil)
         
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
         pageNumberLabel.text = "Page Number: " + String(pageNumber)
         bookTitleLabel.text = "Book Title: " + bookTitle
-        currentTime.text = date
+        currentTime.text = "Start Time: " + date
         bookTitleLabel.lineBreakMode = .byWordWrapping
         bookTitleLabel.numberOfLines = 0
         bookTitleLabel.sizeToFit()
@@ -43,18 +64,6 @@ class DuringSessionViewController: UIViewController {
         let Tap = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
         view.addGestureRecognizer(Tap)
         
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-
-        let newReadingSession = CurrentSession(context: context)
-        newReadingSession.bookTitle = bookTitle
-        newReadingSession.pageNumber = Int64(pageNumber)
-        newReadingSession.startTime = date
-        newReadingSession.endTime = ""
-        do {
-            try context.save()
-        } catch {
-            print("Error saving context \(error)")
-        }
         
     }
     
@@ -75,6 +84,50 @@ class DuringSessionViewController: UIViewController {
         backgroundImageView.superview?.sendSubviewToBack(backgroundImageView)
     }
     
+    func getCurrentTime() -> String {
+        let date = Date()
+        let calendar = Calendar.current
+        let year = calendar.component(.year, from: date)
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        var hour = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        var timeOfDay = "AM"
+        var stringMinute : String = ""
+        
+        if(hour > 12)
+        {
+            hour -= 12
+            timeOfDay = "PM"
+        }
+        if(minutes < 10){
+            stringMinute = "0" + String(minutes)
+        } else{
+            stringMinute = String(minutes)
+        }
+        
+        return String(year) + "-" + String(month) + "-" + String(day) + " " + String(hour) + ":" + stringMinute + timeOfDay
+    }
+    
+    // MARK - Model Manipulation Methods
+    
+    func loadItems(with request: NSFetchRequest<CurrentSession> = CurrentSession.fetchRequest()){
+        
+        do {
+            currentSessionArray = try context.fetch(request)
+            print("sucess reading")
+        } catch {
+            print("Error fetching data from context \(error)")
+        }
+    }
+    
+    func saveItems(){
+        do{
+            try context.save()
+        } catch {
+            print("Error saving context \(error)")
+        }
+    }
     
     /*
      // MARK: - Navigation
