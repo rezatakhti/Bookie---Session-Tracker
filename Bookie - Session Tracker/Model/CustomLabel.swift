@@ -24,8 +24,7 @@ class CustomLabel: UILabel {
     func setupButton(){
         clipsToBounds = true
         textColor = UIColor.flatRedColorDark()
-        font = UIFont.systemFont(ofSize: 18)
-       // font = font.withSize(20)
+        font = font.withSize(18)
     }
     
 }

@@ -60,10 +60,27 @@ class DuringSessionViewController: UIViewController {
         bookTitleLabel.lineBreakMode = .byWordWrapping
         bookTitleLabel.numberOfLines = 0
         bookTitleLabel.sizeToFit()
+        //move the textview up so we can type and see what we're typing
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil);
+         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil);
         // Do any additional setup after loading the view.
         let Tap = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
         view.addGestureRecognizer(Tap)
         
+        
+    }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height/2
+            }
+        }
         
     }
     

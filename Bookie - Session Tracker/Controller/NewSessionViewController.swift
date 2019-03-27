@@ -27,7 +27,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
         bookNameTextField.delegate = self
         pageNumTextField.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil);
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil);
         // Do any additional setup after loading the view.
         bookNameTextField.placeholder = "Book Name Here"
         pageNumTextField.placeholder = "Page Number Here"
@@ -69,26 +69,24 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
         }
         return true
     }
-    //    func textFieldDidBeginEditing(_ textField: UITextField) {
-    //
-    //        UIView.animate(withDuration: 0.5) {
-    //            self.view.frame.origin.y = -28
-    //            self.view.layoutIfNeeded()
-    //        }
-    //    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        
-        let info = notification.userInfo!
-        let keyboardFrame: CGRect = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-        
-        UIView.animate(withDuration: 0.1) {
-            self.view.frame.origin.y =  -keyboardFrame.size.height
-            self.view.layoutIfNeeded()
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
         }
+    }
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }        
         
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: self.view.window)
+      //  NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: self.view.window)
+    }
     func textFieldDidEndEditing(_ textField: UITextField) {
         
     }
@@ -109,6 +107,44 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
             if let bookTitle = bookNameTextField.text, !bookTitle.isEmpty, let pageNumber = pageNumTextField.text, !pageNumber.isEmpty{
                 destinationVC.bookTitle = bookTitle
                 destinationVC.pageNumber = Int(pageNumber)!
+                
+                let date = Date()
+                let calendar = Calendar.current
+                let year = calendar.component(.year, from: date)
+                let month = calendar.component(.month, from: date)
+                let day = calendar.component(.day, from: date)
+                var hour = calendar.component(.hour, from: date)
+                let minutes = calendar.component(.minute, from: date)
+                var timeOfDay = "AM"
+                var stringMinute : String = ""
+                
+                if(hour > 12)
+                {
+                    hour -= 12
+                    timeOfDay = "PM"
+                }
+                if(minutes < 10){
+                    stringMinute = "0" + String(minutes)
+                } else{
+                    stringMinute = String(minutes)
+                }
+                
+                let startTime = String(year) + "-" + String(month) + "-" + String(day) + " " + String(hour) + ":" + stringMinute + timeOfDay
+                destinationVC.date = startTime
+                
+                let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                
+                
+                let newReadingSession = CurrentSession(context: context)
+                newReadingSession.bookTitle = destinationVC.bookTitle
+                newReadingSession.pageNumber = Int64(destinationVC.pageNumber)
+                newReadingSession.startTime = destinationVC.date
+                newReadingSession.endTime = ""
+                do {
+                    try context.save()
+                } catch {
+                    print("Error saving context \(error)")
+                }
             }else{
                 let alert = UIAlertController(title: "Error", message: "Book title and starting page number are required", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Okay", style: .default)
@@ -116,43 +152,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
                 present(alert,animated: true, completion: nil)
             }
             
-            let date = Date()
-            let calendar = Calendar.current
-            let year = calendar.component(.year, from: date)
-            let month = calendar.component(.month, from: date)
-            let day = calendar.component(.day, from: date)
-            var hour = calendar.component(.hour, from: date)
-            let minutes = calendar.component(.minute, from: date)
-            var timeOfDay = "AM"
-            var stringMinute : String = ""
-            
-            if(hour > 12)
-            {
-                hour -= 12
-                timeOfDay = "PM"
-            }
-            if(minutes < 10){
-                stringMinute = "0" + String(minutes)
-            } else{
-                stringMinute = String(minutes)
-            }
-            
-            let startTime = String(year) + "-" + String(month) + "-" + String(day) + " " + String(hour) + ":" + stringMinute + timeOfDay
-            destinationVC.date = startTime
-            
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            
-            
-            let newReadingSession = CurrentSession(context: context)
-            newReadingSession.bookTitle = destinationVC.bookTitle
-            newReadingSession.pageNumber = Int64(destinationVC.pageNumber)
-            newReadingSession.startTime = destinationVC.date
-            newReadingSession.endTime = ""
-            do {
-                try context.save()
-            } catch {
-                print("Error saving context \(error)")
-            }
+           
         }
     }
     
