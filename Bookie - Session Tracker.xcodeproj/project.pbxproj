@@ -64,7 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				6CE40CFD224B0A40005DFBB5 /* SessionsCell.swift */,
-				6C3905442241AB570015FEFA /* DataModel.xcdatamodeld */,
 				6C414535221D2AE2003D1DCD /* CustomTextField.swift */,
 				6CFE7E5E223DEEF900B9D25F /* CustomTextView.swift */,
 				6CAB33A4223CB5BE00AC4985 /* CustomLabel.swift */,
@@ -97,6 +96,7 @@
 				6C7AA0C9221537C600E82C8E /* AppDelegate.swift */,
 				6C7AA0DE221600DC00E82C8E /* Controller */,
 				6C7AA0CD221537C600E82C8E /* Main.storyboard */,
+				6C3905442241AB570015FEFA /* DataModel.xcdatamodeld */,
 				6C414534221C7635003D1DCD /* Views */,
 				6C7AA0D3221537C800E82C8E /* Assets.xcassets */,
 				6C7AA0D5221537C800E82C8E /* LaunchScreen.storyboard */,
@@ -479,7 +479,8 @@
 				6C3905452241AB570015FEFA /* DataModel.xcdatamodel */,
 			);
 			currentVersion = 6C3905452241AB570015FEFA /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
+			name = DataModel.xcdatamodeld;
+			path = Views/DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

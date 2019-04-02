@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.98" systemVersion="18E226" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="CurrentSession" representedClassName="CurrentSession" syncable="YES" codeGenerationType="class">
-        <attribute name="bookTitle" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="endTime" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="pageNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="startTime" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="bookTitle" attributeType="String" syncable="YES"/>
+        <attribute name="endPageNumber" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="endTime" attributeType="String" syncable="YES"/>
+        <attribute name="startPageNumber" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="startTime" attributeType="String" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CurrentSession" positionX="-54" positionY="-9" width="128" height="118"/>
+        <element name="CurrentSession" positionX="-54" positionY="-9" width="128" height="135"/>
     </elements>
 </model>

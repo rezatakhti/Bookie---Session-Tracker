@@ -12,9 +12,10 @@ import CoreData
 
 class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNewSessionDelegate {
     
-    
+    var pastSessionArray = [CurrentSession]()
     let backgroundImageView = UIImageView()
     
+     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     @IBOutlet var bookNameTextField: CustomTextField!
     @IBOutlet var pageNumTextField: CustomTextField!
     @IBOutlet var startButton: CustomButton!
@@ -22,15 +23,10 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
-        
+        loadTextField()
         //setting the delegate of the text field
         bookNameTextField.delegate = self
         pageNumTextField.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil);
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil);
-        // Do any additional setup after loading the view.
-        bookNameTextField.placeholder = "Book Name Here"
-        pageNumTextField.placeholder = "Page Number Here"
         self.pageNumTextField.keyboardType = UIKeyboardType.numberPad
         let Tap = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
         view.addGestureRecognizer(Tap)
@@ -42,6 +38,17 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
         
     }
     
+    func loadTextField(){
+        loadItems()
+        if pastSessionArray.count == 0 {
+            bookNameTextField.placeholder = "Book Name Here"
+            pageNumTextField.placeholder = "Page Number Here"
+        } else {
+            let lastIndex = pastSessionArray.count - 1
+            bookNameTextField.text = pastSessionArray[lastIndex].bookTitle
+            pageNumTextField.text = String(pastSessionArray[lastIndex].endPageNumber)
+        }
+    }
     @objc func DismissKeyboard(){
         view.endEditing(true)
     }
@@ -69,24 +76,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
         }
         return true
     }
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
-    }
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0 {
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }        
-        
-    }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: self.view.window)
-        
-    }
     func textFieldDidEndEditing(_ textField: UITextField) {
         
     }
@@ -138,7 +128,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
                 
                 let newReadingSession = CurrentSession(context: context)
                 newReadingSession.bookTitle = destinationVC.bookTitle
-                newReadingSession.pageNumber = Int64(destinationVC.pageNumber)
+                newReadingSession.startPageNumber = Int64(destinationVC.pageNumber)
                 newReadingSession.startTime = destinationVC.date
                 newReadingSession.endTime = ""
                 do {
@@ -154,6 +144,17 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
             }
             
            
+        }
+    }
+    
+    //MARK: - Data Model Manipulation Methods
+    
+    func loadItems(){
+        let request : NSFetchRequest<CurrentSession> = CurrentSession.fetchRequest()
+        do {
+            pastSessionArray = try context.fetch(request)
+        } catch {
+           print("error fetching data from context \(error)")
         }
     }
     

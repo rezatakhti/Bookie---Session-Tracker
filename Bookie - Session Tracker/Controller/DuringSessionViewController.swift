@@ -23,6 +23,7 @@ class DuringSessionViewController: UIViewController {
     @IBOutlet var pageNumberLabel: CustomLabel!
     @IBOutlet var bookTitleLabel: CustomLabel!
     @IBOutlet var currentTime: CustomLabel!
+    @IBOutlet weak var endPageNumberTextField: CustomTextField!
     
     var pageNumber = 0
     var bookTitle = ""
@@ -31,13 +32,24 @@ class DuringSessionViewController: UIViewController {
     let backgroundImageView = UIImageView()
     
     @IBAction func doneButtonPressed(_ sender: Any) {
-        self.navigationController?.popToRootViewController(animated: true)
+       
         //loading item with matching date in order to add end date and optional summary
         loadCurrentSession()
         if let summaryText = summaryTextView.text {
             currentSession!.summary = summaryText
         }
         currentSession!.endTime = getCurrentTime()
+        if let endPageNum = endPageNumberTextField.text, !endPageNum.isEmpty{
+            currentSession!.endPageNumber = Int64(endPageNum)!
+             self.navigationController?.popToRootViewController(animated: true)
+        }
+        else{
+            let alert = UIAlertController(title: "Error", message: "End page number cannot be empty", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Okay", style: .default)
+            alert.addAction(action)
+            present(alert,animated: true, completion: nil)
+        }
+        
         saveItems()
         
         let alert = UIAlertController(title: "Save Complete", message: "Reading Session has been recorded.", preferredStyle: .alert)
@@ -45,6 +57,16 @@ class DuringSessionViewController: UIViewController {
         alert.addAction(action)
         present(alert,animated: true, completion: nil)
         
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == endPageNumberTextField{
+            
+            let allowedCharacters = CharacterSet.decimalDigits
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
+        }
+        return true
     }
     
     
@@ -70,6 +92,7 @@ class DuringSessionViewController: UIViewController {
         bookTitleLabel.lineBreakMode = .byWordWrapping
         bookTitleLabel.numberOfLines = 0
         bookTitleLabel.sizeToFit()
+        self.endPageNumberTextField.keyboardType = UIKeyboardType.numberPad
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelButtonAction(_:)))
         self.navigationItem.leftBarButtonItem = cancelButton
 
@@ -84,7 +107,7 @@ class DuringSessionViewController: UIViewController {
     }
     
     @objc func cancelButtonAction(_ sender: UIBarButtonItem){
-        let alert = UIAlertController(title: "Cancel", message: "Are you sure you want to cancel?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Cancel", message: "Are you sure you want to cancel? This will delete your current session.", preferredStyle: .alert)
         let action = UIAlertAction(title: "Yes", style: .default, handler: alertHandler)
         let action2 = UIAlertAction(title: "No", style: .default, handler:  alertHandler)
         alert.addAction(action)

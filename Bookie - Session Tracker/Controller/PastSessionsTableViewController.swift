@@ -33,7 +33,7 @@ class PastSessionsTableViewController: UITableViewController {
     }
     
     @IBAction func trashButtonPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this session?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete these sessions?", preferredStyle: .alert)
         
         let action = UIAlertAction(title: "Yes", style: .default, handler: { action in
             for session in self.selectedSessions.reversed() {

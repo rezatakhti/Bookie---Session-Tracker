@@ -30,8 +30,11 @@ class SessionDetailController: UIViewController {
     
     func loadData(){
 
-        if let startPageNumber = selectedSession?.pageNumber{
+        if let startPageNumber = selectedSession?.startPageNumber{
             startPageNumberLabel.text = "Start Page Number: " + String(startPageNumber)
+        }
+        if let endPageNumber = selectedSession?.endPageNumber{
+            endPageNumberLabel.text = "End Page Number: " + String(endPageNumber)
         }
         startTimeLabel.text = "Start Time: " + (selectedSession?.startTime)!
         endTimeLabel.text = "End Time: " + (selectedSession?.endTime)!
