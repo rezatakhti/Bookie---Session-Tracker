@@ -85,7 +85,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
     
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: self.view.window)
-      //  NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: self.view.window)
+        
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         
@@ -100,6 +100,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "startSessionClicked"{
             let destinationVC = segue.destination as! DuringSessionViewController
             destinationVC.delegate = self

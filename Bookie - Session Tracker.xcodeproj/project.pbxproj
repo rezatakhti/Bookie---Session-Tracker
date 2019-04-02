@@ -60,7 +60,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6C414534221C7635003D1DCD /* Model */ = {
+		6C414534221C7635003D1DCD /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				6CE40CFD224B0A40005DFBB5 /* SessionsCell.swift */,
@@ -70,7 +70,7 @@
 				6CAB33A4223CB5BE00AC4985 /* CustomLabel.swift */,
 				6C414532221C7626003D1DCD /* CustomButton.swift */,
 			);
-			path = Model;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		6C7AA0BD221537C600E82C8E = {
@@ -97,7 +97,7 @@
 				6C7AA0C9221537C600E82C8E /* AppDelegate.swift */,
 				6C7AA0DE221600DC00E82C8E /* Controller */,
 				6C7AA0CD221537C600E82C8E /* Main.storyboard */,
-				6C414534221C7635003D1DCD /* Model */,
+				6C414534221C7635003D1DCD /* Views */,
 				6C7AA0D3221537C800E82C8E /* Assets.xcassets */,
 				6C7AA0D5221537C800E82C8E /* LaunchScreen.storyboard */,
 				6C7AA0D8221537C800E82C8E /* Info.plist */,
@@ -235,12 +235,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Bookie - Session Tracker/Pods-Bookie - Session Tracker-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

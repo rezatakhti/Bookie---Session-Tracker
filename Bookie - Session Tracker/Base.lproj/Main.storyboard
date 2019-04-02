@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4gi-IF-kKc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4gi-IF-kKc">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -87,7 +87,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="YQS-RB-vqa"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="newSessionImageView" destination="BUF-Ri-Fwe" id="gCJ-nx-Rlq"/>
                         <outlet property="pastSessionsImageView" destination="LTl-1P-xgL" id="aRN-Ky-akA"/>
@@ -99,7 +101,7 @@
             </objects>
             <point key="canvasLocation" x="712.79999999999995" y="132.26600985221674"/>
         </scene>
-        <!--Past Sessions Table View Controller-->
+        <!--Past Sessions-->
         <scene sceneID="K55-54-eGp">
             <objects>
                 <tableViewController id="Xmv-9C-728" customClass="PastSessionsTableViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -108,15 +110,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionsCell" rowHeight="55" id="KmO-5Y-3BG" customClass="SessionsCell" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="55"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionsCell" rowHeight="80" id="KmO-5Y-3BG" customClass="SessionsCell" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KmO-5Y-3BG" id="C5O-ol-DV1">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="54.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCO-hC-fdV">
-                                            <rect key="frame" x="20" y="15" width="374" height="25"/>
+                                            <rect key="frame" x="20" y="27.333333333333329" width="374" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="9gF-KV-ENN"/>
                                             </constraints>
@@ -141,13 +143,22 @@
                             <outlet property="delegate" destination="Xmv-9C-728" id="hdX-q8-RJL"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem systemItem="trash" id="IVj-nc-pIA">
+                            <connections>
+                                <action selector="trashButtonPressed:" destination="Xmv-9C-728" id="Ltu-w2-d2v"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Past Sessions" id="hTf-kK-XCz"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <segue destination="p4F-78-Vtk" kind="show" identifier="goToSession" id="y2z-NY-daH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7PS-9q-XKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1751" y="597"/>
+            <point key="canvasLocation" x="1761" y="579"/>
         </scene>
         <!--Session Detail Controller-->
         <scene sceneID="z9q-yo-KjJ">
@@ -257,7 +268,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o83-Dc-AMt" customClass="CustomButton" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="30" y="792" width="354" height="50"/>
+                                <rect key="frame" x="30" y="743" width="354" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="h5X-HM-cPB"/>
                                 </constraints>
@@ -268,7 +279,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y9A-Mw-ql7" customClass="CustomTextField" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="30" y="677" width="354" height="50"/>
+                                <rect key="frame" x="30" y="628" width="354" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cQ3-fx-axS"/>
                                 </constraints>
@@ -277,7 +288,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LxT-e4-0pY" customClass="CustomTextField" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="30" y="617" width="354" height="50"/>
+                                <rect key="frame" x="30" y="568" width="354" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jTl-2t-AIp"/>
                                 </constraints>
@@ -337,7 +348,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgz-HI-4tu" customClass="CustomButton" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="677" width="374" height="35"/>
+                                <rect key="frame" x="20" y="628" width="374" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="DQU-Z1-J4O"/>
                                 </constraints>
@@ -347,7 +358,7 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-fN-EMh" customClass="customTextView" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="298" width="374" height="369"/>
+                                <rect key="frame" x="20" y="298" width="374" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -416,6 +427,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xuY-Es-tAV">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0iA-CS-9an"/>
                     </connections>

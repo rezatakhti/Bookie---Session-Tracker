@@ -15,6 +15,7 @@ protocol startNewSessionDelegate{
 class DuringSessionViewController: UIViewController {
     var delegate : startNewSessionDelegate?
     var currentSessionArray = [CurrentSession]()
+    var currentSession : CurrentSession?
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -32,16 +33,11 @@ class DuringSessionViewController: UIViewController {
     @IBAction func doneButtonPressed(_ sender: Any) {
         self.navigationController?.popToRootViewController(animated: true)
         //loading item with matching date in order to add end date and optional summary
-        let request : NSFetchRequest<CurrentSession> = CurrentSession.fetchRequest()
-        let predicate = NSPredicate(format: "startTime MATCHES %@", date)
-        request.predicate = predicate
-        loadItems(with: request)
-        
-        let currentSession = currentSessionArray[0]
+        loadCurrentSession()
         if let summaryText = summaryTextView.text {
-            currentSession.summary = summaryText
+            currentSession!.summary = summaryText
         }
-        currentSession.endTime = getCurrentTime()
+        currentSession!.endTime = getCurrentTime()
         saveItems()
         
         let alert = UIAlertController(title: "Save Complete", message: "Reading Session has been recorded.", preferredStyle: .alert)
@@ -51,6 +47,20 @@ class DuringSessionViewController: UIViewController {
         
     }
     
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        if (self.isMovingFromParent)
+//        {
+//            let alert = UIAlertController(title: "Cancel", message: "Are you sure you want to cancel?", preferredStyle: .alert)
+//            let action = UIAlertAction(title: "Yes", style: .default)
+//           // let action2 = UIAlertAction(title: "No", style: .default)
+//            alert.addAction(action)
+//           // alert.addAction(action2)
+//            self.present(alert,animated: true, completion: nil)
+//            print("hipota444444to")
+//        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
@@ -60,6 +70,9 @@ class DuringSessionViewController: UIViewController {
         bookTitleLabel.lineBreakMode = .byWordWrapping
         bookTitleLabel.numberOfLines = 0
         bookTitleLabel.sizeToFit()
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelButtonAction(_:)))
+        self.navigationItem.leftBarButtonItem = cancelButton
+
         //move the textview up so we can type and see what we're typing
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil);
          NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil);
@@ -69,6 +82,29 @@ class DuringSessionViewController: UIViewController {
         
         
     }
+    
+    @objc func cancelButtonAction(_ sender: UIBarButtonItem){
+        let alert = UIAlertController(title: "Cancel", message: "Are you sure you want to cancel?", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Yes", style: .default, handler: alertHandler)
+        let action2 = UIAlertAction(title: "No", style: .default, handler:  alertHandler)
+        alert.addAction(action)
+        alert.addAction(action2)
+        self.present(alert,animated: true, completion: nil)
+    }
+    
+    func alertHandler(alert: UIAlertAction){
+        if alert.title == "Yes"
+        {
+            //delete the current session if cancelled
+            loadCurrentSession()
+            context.delete(currentSession!)
+            saveItems()
+            //go back to previous controller
+            self.navigationController?.popToRootViewController(animated: true)
+            dismiss(animated: true, completion: nil)
+        }
+    }
+    
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
@@ -127,6 +163,15 @@ class DuringSessionViewController: UIViewController {
     }
     
     // MARK - Model Manipulation Methods
+    
+    func loadCurrentSession(){
+        let request : NSFetchRequest<CurrentSession> = CurrentSession.fetchRequest()
+        let predicate = NSPredicate(format: "startTime MATCHES %@", date)
+        request.predicate = predicate
+        loadItems(with: request)
+        
+        currentSession = currentSessionArray[0]
+    }
     
     func loadItems(with request: NSFetchRequest<CurrentSession> = CurrentSession.fetchRequest()){
         
