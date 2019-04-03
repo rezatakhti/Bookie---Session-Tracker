@@ -324,7 +324,7 @@
         <!--During Session View Controller-->
         <scene sceneID="B0E-Ok-sL2">
             <objects>
-                <viewController id="jyH-tR-2OX" customClass="DuringSessionViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="duringSessionViewController" id="jyH-tR-2OX" customClass="DuringSessionViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pjq-uB-OPK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -435,7 +435,7 @@
         <!--Navigation Controller-->
         <scene sceneID="wH7-Ci-qzX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4gi-IF-kKc" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainNavController" automaticallyAdjustsScrollViewInsets="NO" id="4gi-IF-kKc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RtY-Uf-eaH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

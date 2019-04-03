@@ -16,8 +16,9 @@ class DuringSessionViewController: UIViewController {
     var delegate : startNewSessionDelegate?
     var currentSessionArray = [CurrentSession]()
     var currentSession : CurrentSession?
-    
+    let defaults = UserDefaults.standard
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let isInSession = UserDefaults.standard.bool(forKey: "isInSession")
     
     @IBOutlet var summaryTextView: UITextView!
     @IBOutlet var pageNumberLabel: CustomLabel!
@@ -32,7 +33,8 @@ class DuringSessionViewController: UIViewController {
     let backgroundImageView = UIImageView()
     
     @IBAction func doneButtonPressed(_ sender: Any) {
-       
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.switchRootViewController()
         //loading item with matching date in order to add end date and optional summary
         loadCurrentSession()
         if let summaryText = summaryTextView.text {
@@ -51,7 +53,7 @@ class DuringSessionViewController: UIViewController {
         }
         
         saveItems()
-        
+        defaults.set(false, forKey: "isInSession") // if app closes no longer needs to open up in duringSessionViewController
         let alert = UIAlertController(title: "Save Complete", message: "Reading Session has been recorded.", preferredStyle: .alert)
         let action = UIAlertAction(title: "Okay", style: .default)
         alert.addAction(action)
@@ -86,9 +88,8 @@ class DuringSessionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setBackground()
-        pageNumberLabel.text = "Page Number: " + String(pageNumber)
-        bookTitleLabel.text = "Book Title: " + bookTitle
-        currentTime.text = "Start Time: " + date
+        loadDataIntoView()
+        
         bookTitleLabel.lineBreakMode = .byWordWrapping
         bookTitleLabel.numberOfLines = 0
         bookTitleLabel.sizeToFit()
@@ -104,6 +105,21 @@ class DuringSessionViewController: UIViewController {
         view.addGestureRecognizer(Tap)
         
         
+    }
+    
+    func loadDataIntoView(){
+        if isInSession{
+            loadCurrentSession()
+            if let pageNumber = currentSession?.startPageNumber {
+                pageNumberLabel.text = "Page Number: " + String(pageNumber)
+            }
+            bookTitleLabel.text = "Book Title: " + currentSession!.bookTitle!
+            currentTime.text = "Start Time: " + currentSession!.startTime!
+        } else {
+            pageNumberLabel.text = "Page Number: " + String(pageNumber)
+            bookTitleLabel.text = "Book Title: " + bookTitle
+            currentTime.text = "Start Time: " + date
+        }
     }
     
     @objc func cancelButtonAction(_ sender: UIBarButtonItem){
@@ -122,6 +138,9 @@ class DuringSessionViewController: UIViewController {
             loadCurrentSession()
             context.delete(currentSession!)
             saveItems()
+            defaults.set(false, forKey: "isInSession") // if app closes no longer needs to open up in duringSessionViewController
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.switchRootViewController()
             //go back to previous controller
             self.navigationController?.popToRootViewController(animated: true)
             dismiss(animated: true, completion: nil)
@@ -188,12 +207,19 @@ class DuringSessionViewController: UIViewController {
     // MARK - Model Manipulation Methods
     
     func loadCurrentSession(){
+        
+        if !isInSession{
         let request : NSFetchRequest<CurrentSession> = CurrentSession.fetchRequest()
         let predicate = NSPredicate(format: "startTime MATCHES %@", date)
         request.predicate = predicate
         loadItems(with: request)
         
         currentSession = currentSessionArray[0]
+        } else {
+            loadItems()
+            let arrayIndex = currentSessionArray.count - 1
+            currentSession = currentSessionArray[arrayIndex]
+        }
     }
     
     func loadItems(with request: NSFetchRequest<CurrentSession> = CurrentSession.fetchRequest()){

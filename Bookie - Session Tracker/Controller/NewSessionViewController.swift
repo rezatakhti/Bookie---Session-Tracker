@@ -15,7 +15,9 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
     var pastSessionArray = [CurrentSession]()
     let backgroundImageView = UIImageView()
     
-     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    let defaults = UserDefaults.standard
     @IBOutlet var bookNameTextField: CustomTextField!
     @IBOutlet var pageNumTextField: CustomTextField!
     @IBOutlet var startButton: CustomButton!
@@ -99,6 +101,9 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
                 destinationVC.bookTitle = bookTitle
                 destinationVC.pageNumber = Int(pageNumber)!
                 
+                //setting user defaults so if app closes app will open up at the right page
+                defaults.set(true, forKey: "isInSession")
+                
                 let date = Date()
                 let calendar = Calendar.current
                 let year = calendar.component(.year, from: date)
@@ -143,7 +148,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
                 present(alert,animated: true, completion: nil)
             }
             
-           
+            
         }
     }
     
@@ -154,7 +159,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
         do {
             pastSessionArray = try context.fetch(request)
         } catch {
-           print("error fetching data from context \(error)")
+            print("error fetching data from context \(error)")
         }
     }
     
