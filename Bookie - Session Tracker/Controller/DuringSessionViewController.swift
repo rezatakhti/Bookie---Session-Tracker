@@ -13,12 +13,17 @@ protocol startNewSessionDelegate{
 }
 
 class DuringSessionViewController: UIViewController {
+    
     var delegate : startNewSessionDelegate?
     var currentSessionArray = [CurrentSession]()
     var currentSession : CurrentSession?
     let defaults = UserDefaults.standard
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let isInSession = UserDefaults.standard.bool(forKey: "isInSession")
+    var pageNumber = 0
+    var bookTitle = ""
+    var date = ""
+    
     
     @IBOutlet var summaryTextView: UITextView!
     @IBOutlet var pageNumberLabel: CustomLabel!
@@ -26,15 +31,11 @@ class DuringSessionViewController: UIViewController {
     @IBOutlet var currentTime: CustomLabel!
     @IBOutlet weak var endPageNumberTextField: CustomTextField!
     
-    var pageNumber = 0
-    var bookTitle = ""
-    var date = ""
     
     let backgroundImageView = UIImageView()
     
-    @IBAction func doneButtonPressed(_ sender: Any) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.switchRootViewController()
+    @IBAction func cancelButtonPressed(_ sender: Any) {
+     
         //loading item with matching date in order to add end date and optional summary
         loadCurrentSession()
         if let summaryText = summaryTextView.text {
@@ -43,9 +44,10 @@ class DuringSessionViewController: UIViewController {
         currentSession!.endTime = getCurrentTime()
         if let endPageNum = endPageNumberTextField.text, !endPageNum.isEmpty{
             currentSession!.endPageNumber = Int64(endPageNum)!
-             self.navigationController?.popToRootViewController(animated: true)
+            self.navigationController?.popToRootViewController(animated: true)
         }
         else{
+            print("there is an error and a pop up should be happing")
             let alert = UIAlertController(title: "Error", message: "End page number cannot be empty", preferredStyle: .alert)
             let action = UIAlertAction(title: "Okay", style: .default)
             alert.addAction(action)
@@ -59,6 +61,14 @@ class DuringSessionViewController: UIViewController {
         alert.addAction(action)
         present(alert,animated: true, completion: nil)
         
+    }
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(title: "Cancel", message: "Are you sure you want to cancel? This will delete your current session.", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Yes", style: .default, handler: alertHandler)
+        let action2 = UIAlertAction(title: "No", style: .default, handler:  alertHandler)
+        alert.addAction(action)
+        alert.addAction(action2)
+        self.present(alert,animated: true, completion: nil)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -93,9 +103,9 @@ class DuringSessionViewController: UIViewController {
         bookTitleLabel.lineBreakMode = .byWordWrapping
         bookTitleLabel.numberOfLines = 0
         bookTitleLabel.sizeToFit()
+        
+        endPageNumberTextField.placeholder = "End Page Number Here"
         self.endPageNumberTextField.keyboardType = UIKeyboardType.numberPad
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(self.cancelButtonAction(_:)))
-        self.navigationItem.leftBarButtonItem = cancelButton
 
         //move the textview up so we can type and see what we're typing
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil);
@@ -103,7 +113,9 @@ class DuringSessionViewController: UIViewController {
         // Do any additional setup after loading the view.
         let Tap = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
         view.addGestureRecognizer(Tap)
-        
+        if let rootVC = navigationController?.viewControllers.first{
+            navigationController?.viewControllers = [rootVC, self]
+        }
         
     }
     
@@ -123,12 +135,7 @@ class DuringSessionViewController: UIViewController {
     }
     
     @objc func cancelButtonAction(_ sender: UIBarButtonItem){
-        let alert = UIAlertController(title: "Cancel", message: "Are you sure you want to cancel? This will delete your current session.", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Yes", style: .default, handler: alertHandler)
-        let action2 = UIAlertAction(title: "No", style: .default, handler:  alertHandler)
-        alert.addAction(action)
-        alert.addAction(action2)
-        self.present(alert,animated: true, completion: nil)
+      
     }
     
     func alertHandler(alert: UIAlertAction){
@@ -139,8 +146,7 @@ class DuringSessionViewController: UIViewController {
             context.delete(currentSession!)
             saveItems()
             defaults.set(false, forKey: "isInSession") // if app closes no longer needs to open up in duringSessionViewController
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.switchRootViewController()
+
             //go back to previous controller
             self.navigationController?.popToRootViewController(animated: true)
             dismiss(animated: true, completion: nil)

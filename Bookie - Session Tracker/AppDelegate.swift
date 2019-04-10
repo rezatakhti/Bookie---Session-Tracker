@@ -17,30 +17,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let defaults = UserDefaults.standard
-        let isInSession = defaults.bool(forKey: "isInSession")
-        if isInSession {
-            print("Currently in a session")
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let navigationController:UINavigationController = storyboard.instantiateInitialViewController() as! UINavigationController
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "duringSessionViewController") as UIViewController
-            navigationController.viewControllers = [initialViewController]
-            self.window?.rootViewController = navigationController
-            self.window?.makeKeyAndVisible()
-            
-        } else {
-            print("Not currently in a session")
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            
-            let initialViewController = storyboard.instantiateViewController(withIdentifier: "mainNavController") as! UINavigationController
-            
-            self.window?.rootViewController = initialViewController
-            self.window?.makeKeyAndVisible()
-        }
+//        let defaults = UserDefaults.standard
+//        let isInSession = defaults.bool(forKey: "isInSession")
+//        if isInSession {
+//            print("Currently in a session")
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//            
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let navigationController = storyboard.instantiateViewController(withIdentifier: "mainNavController") as! UINavigationController
+//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "duringSessionViewController") as UIViewController
+//            navigationController.viewControllers = [initialViewController]
+//            self.window?.rootViewController = navigationController
+//            self.window?.makeKeyAndVisible()
+//            
+//        } else {
+//            
+//            print("Not currently in a session")
+//            self.window = UIWindow(frame: UIScreen.main.bounds)
+//            
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            
+//            let initialViewController = storyboard.instantiateViewController(withIdentifier: "mainNavController") as! UINavigationController
+//            
+//            self.window?.rootViewController = initialViewController
+//            self.window?.makeKeyAndVisible()
+//        }
         return true
     }
     
@@ -112,17 +113,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    
-    func switchRootViewController() {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "mainNavController") as! UINavigationController
-        
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
-    }
-    
 }
 

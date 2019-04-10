@@ -146,6 +146,8 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
                 let action = UIAlertAction(title: "Okay", style: .default)
                 alert.addAction(action)
                 present(alert,animated: true, completion: nil)
+                
+    
             }
             
             
@@ -162,6 +164,4 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
             print("error fetching data from context \(error)")
         }
     }
-    
-    
 }

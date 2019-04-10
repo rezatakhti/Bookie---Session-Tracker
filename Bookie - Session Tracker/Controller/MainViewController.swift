@@ -10,12 +10,16 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    
     @IBOutlet weak var newSessionImageView: UIImageView!
     @IBOutlet weak var pastSessionsImageView: UIImageView!
+    @IBOutlet weak var newSessionButton: UILabel!
+    
+    let defaults = UserDefaults.standard
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         // Do any additional setup after loading the view, typically from a nib.
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MainViewController.imageTapped(gesture:)))
@@ -24,10 +28,30 @@ class MainViewController: UIViewController {
         
 //        pastSessionsImageView.addGestureRecognizer(tapGesture)
         pastSessionsImageView.isUserInteractionEnabled = true
+        
+        
+        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let isInSession = defaults.bool(forKey: "isInSession")
+        if(isInSession){
+            newSessionButton.text = "Current Session"
+        }else{
+            newSessionButton.text = "New Session"
+        }
+    }
     
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
 //    @objc func imageTapped(gesture: UIGestureRecognizer){
 //        // if the tapped view is a UIImageView then set it to imageview
 //        if(gesture.view as? UIImageView) != nil{
@@ -40,7 +64,14 @@ class MainViewController: UIViewController {
         if let touch = touches.first{
             if touch.view == newSessionImageView{
                 print("new session view tapped")
-                performSegue(withIdentifier: "goToNewSession", sender: self)
+                
+                let isInSession = defaults.bool(forKey: "isInSession")
+                if (isInSession){
+                    performSegue(withIdentifier: "goToCurrentSession", sender: self)
+                }else {
+                    performSegue(withIdentifier: "goToNewSession", sender: self)
+                }
+                
             }
             if touch.view == pastSessionsImageView{
                 print("past ession view tapped")
@@ -50,9 +81,7 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let backItem = UIBarButtonItem()
-        backItem.title = "Cancel"
-        navigationItem.backBarButtonItem = backItem
+       navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
 }

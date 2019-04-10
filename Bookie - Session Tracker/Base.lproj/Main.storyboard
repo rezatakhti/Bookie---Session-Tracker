@@ -13,7 +13,7 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,15 +91,17 @@
                     <navigationItem key="navigationItem" id="YQS-RB-vqa"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="newSessionButton" destination="Zoh-W8-dA3" id="SB3-uL-bgG"/>
                         <outlet property="newSessionImageView" destination="BUF-Ri-Fwe" id="gCJ-nx-Rlq"/>
                         <outlet property="pastSessionsImageView" destination="LTl-1P-xgL" id="aRN-Ky-akA"/>
                         <segue destination="E0l-bN-Buj" kind="show" identifier="goToNewSession" id="2cJ-tk-8hn"/>
                         <segue destination="Xmv-9C-728" kind="show" identifier="goToPastSessions" id="Rdi-Ww-PEh"/>
+                        <segue destination="jyH-tR-2OX" kind="show" identifier="goToCurrentSession" id="b6H-Hc-jp0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712.79999999999995" y="132.26600985221674"/>
+            <point key="canvasLocation" x="711.59420289855075" y="131.91964285714286"/>
         </scene>
         <!--Past Sessions-->
         <scene sceneID="K55-54-eGp">
@@ -262,7 +264,7 @@
         <!--New Session View Controller-->
         <scene sceneID="qAI-Yh-QCo">
             <objects>
-                <viewController id="E0l-bN-Buj" customClass="NewSessionViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newSessionViewController" id="E0l-bN-Buj" customClass="NewSessionViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hp8-2Y-Uut">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -311,6 +313,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oE5-Xh-cpf"/>
                     </view>
+                    <navigationItem key="navigationItem" id="nZh-LU-Grj"/>
                     <connections>
                         <outlet property="bookNameTextField" destination="LxT-e4-0pY" id="vgj-H8-e0q"/>
                         <outlet property="pageNumTextField" destination="y9A-Mw-ql7" id="cBq-KX-Hiz"/>
@@ -319,9 +322,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TF0-DS-LnK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1750.7246376811595" y="-115.17857142857142"/>
+            <point key="canvasLocation" x="1761" y="-368"/>
         </scene>
-        <!--During Session View Controller-->
+        <!--Current Session-->
         <scene sceneID="B0E-Ok-sL2">
             <objects>
                 <viewController storyboardIdentifier="duringSessionViewController" id="jyH-tR-2OX" customClass="DuringSessionViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -388,7 +391,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="D8P-iX-Gm0"/>
                                 </constraints>
-                                <state key="normal" title="Done"/>
+                                <state key="normal" title="Cancel Session"/>
                                 <connections>
                                     <action selector="doneButtonPressed:" destination="jyH-tR-2OX" eventType="touchUpInside" id="4x2-DY-dsT"/>
                                 </connections>
@@ -420,6 +423,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jut-Fh-I9z"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Current Session" id="WOM-F9-3ZS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="D2a-P8-m3y">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="jyH-tR-2OX" id="AFG-7N-jnL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bookTitleLabel" destination="zQG-bE-1MI" id="Q6y-tq-uhr"/>
                         <outlet property="currentTime" destination="01X-L1-7ZW" id="4hY-t4-Y8r"/>
@@ -430,7 +441,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBm-9e-cjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2644.9275362318845" y="-119.19642857142857"/>
+            <point key="canvasLocation" x="2735" y="-74"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wH7-Ci-qzX">
@@ -458,4 +469,8 @@
         <image name="austin-smart-70350" width="5230" height="3269"/>
         <image name="levi-saunders-71726" width="5184" height="3456"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="b6H-Hc-jp0"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
