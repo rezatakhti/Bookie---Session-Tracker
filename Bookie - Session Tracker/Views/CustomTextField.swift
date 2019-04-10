@@ -27,7 +27,7 @@ class CustomTextField: UITextField {
         tintColor             = .white
         textColor             = .white
         font                  = UIFont(name: "AvenirNext-Demi", size: 18)
-        backgroundColor       = UIColor(white: 1.0, alpha: 0.5)
+        backgroundColor       = UIColor(white: 1.0, alpha: 0.7)
         autocorrectionType    = .yes
         layer.cornerRadius    = 15.0
         clipsToBounds         = true
@@ -47,7 +47,7 @@ class CustomTextField: UITextField {
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
         layer.shadowRadius = 10
-        layer.shadowOpacity = 0.5
+        layer.shadowOpacity = 0.9
         clipsToBounds = true
         layer.masksToBounds = false
     }

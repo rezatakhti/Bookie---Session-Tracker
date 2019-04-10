@@ -179,8 +179,9 @@ class DuringSessionViewController: UIViewController {
         backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        backgroundImageView.image = UIImage(named: "yellowBG")
-        backgroundImageView.contentMode = .scaleToFill
+        backgroundImageView.image = UIImage(named: "background")
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.layer.masksToBounds = true
         backgroundImageView.superview?.sendSubviewToBack(backgroundImageView)
     }
     

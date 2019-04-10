@@ -26,7 +26,7 @@ class customTextView : UITextView{
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
         layer.shadowRadius = 10
-        layer.shadowOpacity = 0.5
+        layer.shadowOpacity = 0.9
         clipsToBounds = true
         layer.masksToBounds = false
         contentInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: -10)
@@ -37,7 +37,7 @@ class customTextView : UITextView{
         tintColor             = .white
         textColor             = .white
         font                  = UIFont.systemFont(ofSize: 18)
-        backgroundColor       = UIColor(white: 1.0, alpha: 0.5)
+        backgroundColor       = UIColor(white: 1.0, alpha: 0.7)
         autocorrectionType    = .yes
         layer.cornerRadius    = 15.0
         clipsToBounds         = true
