@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 import SwipeCellKit
 
 class PastSessionsTableViewController: UITableViewController {
@@ -15,11 +14,10 @@ class PastSessionsTableViewController: UITableViewController {
     var pastSessionsArray = [CurrentSession]()
     var selectedSessions = [IndexPath : CurrentSession]()
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadItems()
+        pastSessionsArray = CoreDataManager.sharedManager.loadItems()
+        tableView.reloadData()
         tableView.rowHeight = 100.0
         tableView.allowsMultipleSelectionDuringEditing = true
         
@@ -37,10 +35,10 @@ class PastSessionsTableViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Yes", style: .default, handler: { action in
             for session in self.selectedSessions.reversed() {
-                self.context.delete(session.value)
-                self.saveItems()
+                CoreDataManager.sharedManager.context.delete(session.value)
+                CoreDataManager.sharedManager.saveItems()
             }
-            self.loadItems()
+            self.pastSessionsArray = CoreDataManager.sharedManager.loadItems()
             self.tableView.reloadData()
         })
         
@@ -94,14 +92,6 @@ class PastSessionsTableViewController: UITableViewController {
     
     // MARK: - Data Model Manipulation Methods
     
-    func loadItems(with request: NSFetchRequest<CurrentSession> = CurrentSession.fetchRequest()){
-        do{
-            pastSessionsArray = try context.fetch(request)
-        } catch {
-            print("error fetching data from context \(error)")
-        }
-        tableView.reloadData()
-    }
     
     //MARK: - TableView Delegate Methods
     
@@ -110,8 +100,6 @@ class PastSessionsTableViewController: UITableViewController {
             performSegue(withIdentifier: "goToSession", sender: self)
         } else {
             let selectedSession = pastSessionsArray[indexPath.row]
-            print(selectedSession.startTime)
-            print(indexPath.row)
             selectedSessions[indexPath] = selectedSession
         }
         
@@ -119,8 +107,6 @@ class PastSessionsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         if self.tableView.isEditing == true{
-            print(selectedSessions[indexPath]?.startTime)
-            print(indexPath.row)
             selectedSessions[indexPath] = nil
         }
     }
@@ -131,13 +117,6 @@ class PastSessionsTableViewController: UITableViewController {
         let destinationVC = segue.destination as! SessionDetailController
         if let indexPath = tableView.indexPathForSelectedRow{
             destinationVC.selectedSession = pastSessionsArray[indexPath.row]
-        }
-    }
-    func saveItems(){
-        do{
-            try context.save()
-        } catch {
-            print("Error saving context \(error)")
         }
     }
     
@@ -152,9 +131,9 @@ extension PastSessionsTableViewController: SwipeTableViewCellDelegate {
             let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete this session?", preferredStyle: .alert)
             let action = UIAlertAction(title: "Yes", style: .default, handler: { action in
                 
-                self.context.delete(self.pastSessionsArray[indexPath.row])
+                CoreDataManager.sharedManager.context.delete(self.pastSessionsArray[indexPath.row])
                 self.pastSessionsArray.remove(at: indexPath.row)
-                self.saveItems()
+                CoreDataManager.sharedManager.saveItems()
                 tableView.reloadData()
             })
             
@@ -162,7 +141,6 @@ extension PastSessionsTableViewController: SwipeTableViewCellDelegate {
             alert.addAction(action)
             alert.addAction(action2)
             self.present(alert,animated: true, completion: nil)
-            
             
         }
         

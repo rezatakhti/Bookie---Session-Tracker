@@ -18,7 +18,6 @@ class DuringSessionViewController: UIViewController {
     var currentSessionArray = [CurrentSession]()
     var currentSession : CurrentSession?
     let defaults = UserDefaults.standard
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     let isInSession = UserDefaults.standard.bool(forKey: "isInSession")
     var pageNumber = 0
     var bookTitle = ""
@@ -54,7 +53,7 @@ class DuringSessionViewController: UIViewController {
             present(alert,animated: true, completion: nil)
         }
         
-        saveItems()
+        CoreDataManager.sharedManager.saveItems()
         defaults.set(false, forKey: "isInSession") // if app closes no longer needs to open up in duringSessionViewController
         let alert = UIAlertController(title: "Save Complete", message: "Reading Session has been recorded.", preferredStyle: .alert)
         let action = UIAlertAction(title: "Okay", style: .default)
@@ -143,8 +142,8 @@ class DuringSessionViewController: UIViewController {
         {
             //delete the current session if cancelled
             loadCurrentSession()
-            context.delete(currentSession!)
-            saveItems()
+            CoreDataManager.sharedManager.context.delete(currentSession!)
+            CoreDataManager.sharedManager.saveItems()
             defaults.set(false, forKey: "isInSession") // if app closes no longer needs to open up in duringSessionViewController
 
             //go back to previous controller
@@ -218,31 +217,13 @@ class DuringSessionViewController: UIViewController {
         let request : NSFetchRequest<CurrentSession> = CurrentSession.fetchRequest()
         let predicate = NSPredicate(format: "startTime MATCHES %@", date)
         request.predicate = predicate
-        loadItems(with: request)
+        currentSessionArray =  CoreDataManager.sharedManager.loadItems(with: request)
         
         currentSession = currentSessionArray[0]
         } else {
-            loadItems()
+            currentSessionArray = CoreDataManager.sharedManager.loadItems()
             let arrayIndex = currentSessionArray.count - 1
             currentSession = currentSessionArray[arrayIndex]
-        }
-    }
-    
-    func loadItems(with request: NSFetchRequest<CurrentSession> = CurrentSession.fetchRequest()){
-        
-        do {
-            currentSessionArray = try context.fetch(request)
-            print("sucess reading")
-        } catch {
-            print("Error fetching data from context \(error)")
-        }
-    }
-    
-    func saveItems(){
-        do{
-            try context.save()
-        } catch {
-            print("Error saving context \(error)")
         }
     }
     

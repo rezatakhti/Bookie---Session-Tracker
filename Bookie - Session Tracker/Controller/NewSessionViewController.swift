@@ -15,8 +15,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
     var pastSessionArray = [CurrentSession]()
     let backgroundImageView = UIImageView()
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
     let defaults = UserDefaults.standard
     @IBOutlet var bookNameTextField: CustomTextField!
     @IBOutlet var pageNumTextField: CustomTextField!
@@ -41,7 +39,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
     }
     
     func loadTextField(){
-        loadItems()
+        pastSessionArray = CoreDataManager.sharedManager.loadItems()
         if pastSessionArray.count == 0 {
             bookNameTextField.placeholder = "Book Name Here"
             pageNumTextField.placeholder = "Page Number Here"
@@ -128,19 +126,14 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
                 let startTime = String(year) + "-" + String(month) + "-" + String(day) + " " + String(hour) + ":" + stringMinute + timeOfDay
                 destinationVC.date = startTime
                 
-                let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+              
                 
-                
-                let newReadingSession = CurrentSession(context: context)
+                let newReadingSession = CurrentSession(context: CoreDataManager.sharedManager.context)
                 newReadingSession.bookTitle = destinationVC.bookTitle
                 newReadingSession.startPageNumber = Int64(destinationVC.pageNumber)
                 newReadingSession.startTime = destinationVC.date
                 newReadingSession.endTime = ""
-                do {
-                    try context.save()
-                } catch {
-                    print("Error saving context \(error)")
-                }
+                CoreDataManager.sharedManager.saveItems()
             }else{
                 let alert = UIAlertController(title: "Error", message: "Book title and starting page number are required", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Okay", style: .default)
@@ -151,17 +144,6 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
             }
             
             
-        }
-    }
-    
-    //MARK: - Data Model Manipulation Methods
-    
-    func loadItems(){
-        let request : NSFetchRequest<CurrentSession> = CurrentSession.fetchRequest()
-        do {
-            pastSessionArray = try context.fetch(request)
-        } catch {
-            print("error fetching data from context \(error)")
         }
     }
 }
