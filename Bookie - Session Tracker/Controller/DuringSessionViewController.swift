@@ -12,7 +12,7 @@ protocol startNewSessionDelegate{
     func userEnteredBookInfo(pageNum: Int, bookTitle: String)
 }
 
-class DuringSessionViewController: UIViewController {
+class DuringSessionViewController: UIViewController, UITextFieldDelegate {
     
     var delegate : startNewSessionDelegate?
     var currentSessionArray = [CurrentSession]()
@@ -102,7 +102,7 @@ class DuringSessionViewController: UIViewController {
         bookTitleLabel.lineBreakMode = .byWordWrapping
         bookTitleLabel.numberOfLines = 0
         bookTitleLabel.sizeToFit()
-        
+        endPageNumberTextField.delegate = self
         endPageNumberTextField.placeholder = "End Page Number Here"
         self.endPageNumberTextField.keyboardType = UIKeyboardType.numberPad
 
