@@ -391,7 +391,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="D8P-iX-Gm0"/>
                                 </constraints>
-                                <state key="normal" title="Cancel Session"/>
+                                <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneButtonPressed:" destination="jyH-tR-2OX" eventType="touchUpInside" id="4x2-DY-dsT"/>
                                 </connections>
@@ -424,7 +424,7 @@
                         <viewLayoutGuide key="safeArea" id="Jut-Fh-I9z"/>
                     </view>
                     <navigationItem key="navigationItem" title="Current Session" id="WOM-F9-3ZS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="D2a-P8-m3y">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="D2a-P8-m3y">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cancelButtonPressed:" destination="jyH-tR-2OX" id="AFG-7N-jnL"/>
