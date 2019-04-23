@@ -12,7 +12,7 @@ protocol startNewSessionDelegate{
     func userEnteredBookInfo(pageNum: Int, bookTitle: String)
 }
 
-class DuringSessionViewController: UIViewController, UITextFieldDelegate {
+class DuringSessionViewController: UIViewController, UITextFieldDelegate{
     
     var delegate : startNewSessionDelegate?
     var currentSessionArray = [CurrentSession]()

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4gi-IF-kKc">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,17 +15,17 @@
             <objects>
                 <viewController storyboardIdentifier="mainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZyQ-Nu-Jru" userLabel="New Session View">
-                                <rect key="frame" x="0.0" y="88" width="414" height="404"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="301.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="austin-smart-70350" translatesAutoresizingMaskIntoConstraints="NO" id="BUF-Ri-Fwe">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="404"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Session" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zoh-W8-dA3">
-                                        <rect key="frame" x="85" y="187" width="244" height="30"/>
+                                        <rect key="frame" x="65.5" y="136" width="244" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="244" id="Hek-W4-cPm"/>
                                             <constraint firstAttribute="height" constant="30" id="edT-bB-4XZ"/>
@@ -46,13 +46,13 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fla-M5-38a" userLabel="Past Sessions View">
-                                <rect key="frame" x="0.0" y="492" width="414" height="404"/>
+                                <rect key="frame" x="0.0" y="365.5" width="375" height="301.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="levi-saunders-71726" translatesAutoresizingMaskIntoConstraints="NO" id="LTl-1P-xgL">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="404"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="301.5"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Past Sessions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6GK-Fh-5AV">
-                                        <rect key="frame" x="85" y="187" width="244" height="30"/>
+                                        <rect key="frame" x="65.5" y="136" width="244" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="PAm-y1-OSQ"/>
                                             <constraint firstAttribute="width" constant="244" id="bGo-lZ-fNS"/>
@@ -108,19 +108,19 @@
             <objects>
                 <tableViewController id="Xmv-9C-728" customClass="PastSessionsTableViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QrQ-fm-mms">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SessionsCell" rowHeight="80" id="KmO-5Y-3BG" customClass="SessionsCell" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KmO-5Y-3BG" id="C5O-ol-DV1">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="79.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCO-hC-fdV">
-                                            <rect key="frame" x="20" y="27.333333333333329" width="374" height="25"/>
+                                            <rect key="frame" x="20" y="27.5" width="335" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="9gF-KV-ENN"/>
                                             </constraints>
@@ -167,11 +167,11 @@
             <objects>
                 <viewController id="p4F-78-Vtk" customClass="SessionDetailController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="35g-NS-Z54">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deH-5j-g1S" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="273" width="374" height="25"/>
+                                <rect key="frame" x="20" y="249" width="335" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="7qn-C6-A3t"/>
                                 </constraints>
@@ -180,7 +180,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VS4-8Z-Wue" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="203" width="374" height="25"/>
+                                <rect key="frame" x="20" y="179" width="335" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="WqP-xa-zP3"/>
                                 </constraints>
@@ -189,7 +189,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWP-XC-fbU" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="238" width="374" height="25"/>
+                                <rect key="frame" x="20" y="214" width="335" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="HtF-5c-TIe"/>
                                 </constraints>
@@ -198,7 +198,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uv5-OM-V51" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="318" width="374" height="300"/>
+                                <rect key="frame" x="20" y="294" width="335" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="F0V-x6-XI7"/>
                                 </constraints>
@@ -207,7 +207,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0Y-kT-7OR" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="108" width="374" height="50"/>
+                                <rect key="frame" x="20" y="84" width="335" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="qLa-39-e7h"/>
                                 </constraints>
@@ -216,7 +216,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gms-V5-7UV" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="168" width="374" height="25"/>
+                                <rect key="frame" x="20" y="144" width="335" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="5z5-S7-EeW"/>
                                 </constraints>
@@ -266,11 +266,11 @@
             <objects>
                 <viewController storyboardIdentifier="newSessionViewController" id="E0l-bN-Buj" customClass="NewSessionViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" autoresizesSubviews="NO" contentMode="scaleToFill" id="hp8-2Y-Uut">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o83-Dc-AMt" customClass="CustomButton" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="30" y="343" width="354" height="50"/>
+                                <rect key="frame" x="30" y="319" width="315" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="h7h-Ge-Vfg"/>
                                 </constraints>
@@ -281,7 +281,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y9A-Mw-ql7" customClass="CustomTextField" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="30" y="233" width="354" height="50"/>
+                                <rect key="frame" x="30" y="209" width="315" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Iu4-jZ-RA9"/>
                                 </constraints>
@@ -290,7 +290,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LxT-e4-0pY" customClass="CustomTextField" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="30" y="168" width="354" height="50"/>
+                                <rect key="frame" x="30" y="144" width="315" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3cY-90-GFy"/>
                                 </constraints>
@@ -329,97 +329,120 @@
             <objects>
                 <viewController storyboardIdentifier="duringSessionViewController" id="jyH-tR-2OX" customClass="DuringSessionViewController" customModule="Bookie___Session_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pjq-uB-OPK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="zQG-bE-1MI" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="158" width="374" height="50"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVt-7g-bep">
+                                <rect key="frame" x="0.0" y="64" width="414" height="836"/>
+                                <subviews>
+                                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LHj-Vx-CJ9">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="900"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgz-HI-4tu" customClass="CustomButton" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="646.5" width="374" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="qAg-jq-5vt"/>
+                                                </constraints>
+                                                <state key="normal" title="Done"/>
+                                                <connections>
+                                                    <action selector="doneButtonPressed:" destination="jyH-tR-2OX" eventType="touchUpInside" id="4x2-DY-dsT"/>
+                                                </connections>
+                                            </button>
+                                            <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="zQG-bE-1MI" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="123.5" width="374" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="cot-UV-wqP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01X-L1-7ZW" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="30" width="374" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="hcu-Wb-JaH"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-fN-EMh" customClass="customTextView" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="273.5" width="374" height="273"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="273" id="xuP-1j-bKq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIL-iw-ee6" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="80" width="374" height="23.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ug0-aN-Iup" customClass="CustomTextField" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="163.5" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="6hM-v0-czy"/>
+                                                </constraints>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary / notes: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fl6-FP-4Vw" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="223.5" width="374" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="CJG-XI-sQ4"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="YIL-iw-ee6" firstAttribute="top" secondItem="01X-L1-7ZW" secondAttribute="bottom" constant="20" id="0DW-Gn-Fx9"/>
+                                            <constraint firstAttribute="trailing" secondItem="Lgz-HI-4tu" secondAttribute="trailing" constant="20" id="0Qj-Oz-rhW"/>
+                                            <constraint firstItem="Ug0-aN-Iup" firstAttribute="top" secondItem="zQG-bE-1MI" secondAttribute="bottom" constant="10" id="21I-ek-QPN"/>
+                                            <constraint firstItem="YIL-iw-ee6" firstAttribute="leading" secondItem="LHj-Vx-CJ9" secondAttribute="leading" constant="20" id="6cj-xM-Zqe"/>
+                                            <constraint firstAttribute="trailing" secondItem="fl6-FP-4Vw" secondAttribute="trailing" constant="20" id="948-f8-LKP"/>
+                                            <constraint firstItem="fl6-FP-4Vw" firstAttribute="top" secondItem="Ug0-aN-Iup" secondAttribute="bottom" constant="10" id="DYd-xp-dP3"/>
+                                            <constraint firstItem="zQG-bE-1MI" firstAttribute="top" secondItem="YIL-iw-ee6" secondAttribute="bottom" constant="20" id="HQN-NX-gL3"/>
+                                            <constraint firstItem="SYS-fN-EMh" firstAttribute="leading" secondItem="LHj-Vx-CJ9" secondAttribute="leading" constant="20" id="JBj-qr-uGM"/>
+                                            <constraint firstItem="SYS-fN-EMh" firstAttribute="top" secondItem="fl6-FP-4Vw" secondAttribute="bottom" constant="20" id="Kbh-XA-bER"/>
+                                            <constraint firstAttribute="height" constant="900" id="Sjv-tI-VrC"/>
+                                            <constraint firstAttribute="trailing" secondItem="zQG-bE-1MI" secondAttribute="trailing" constant="20" id="U4S-1K-yoY"/>
+                                            <constraint firstItem="Ug0-aN-Iup" firstAttribute="leading" secondItem="LHj-Vx-CJ9" secondAttribute="leading" constant="20" id="U8O-qr-0ji"/>
+                                            <constraint firstItem="01X-L1-7ZW" firstAttribute="top" secondItem="LHj-Vx-CJ9" secondAttribute="top" constant="30" id="UkC-pA-UEF"/>
+                                            <constraint firstAttribute="trailing" secondItem="YIL-iw-ee6" secondAttribute="trailing" constant="20" id="VxT-QA-mMf"/>
+                                            <constraint firstItem="Lgz-HI-4tu" firstAttribute="leading" secondItem="LHj-Vx-CJ9" secondAttribute="leading" constant="20" id="WSg-gp-naV"/>
+                                            <constraint firstItem="zQG-bE-1MI" firstAttribute="leading" secondItem="LHj-Vx-CJ9" secondAttribute="leading" constant="20" id="ZFe-9K-AOP"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ug0-aN-Iup" secondAttribute="trailing" constant="20" id="oQK-oq-7jz"/>
+                                            <constraint firstItem="Lgz-HI-4tu" firstAttribute="top" secondItem="SYS-fN-EMh" secondAttribute="bottom" constant="100" id="rsY-7e-prj"/>
+                                            <constraint firstAttribute="trailing" secondItem="SYS-fN-EMh" secondAttribute="trailing" constant="20" id="sIV-us-Jkk"/>
+                                            <constraint firstItem="01X-L1-7ZW" firstAttribute="leading" secondItem="LHj-Vx-CJ9" secondAttribute="leading" constant="20" id="uNk-2d-ncp"/>
+                                            <constraint firstItem="fl6-FP-4Vw" firstAttribute="leading" secondItem="LHj-Vx-CJ9" secondAttribute="leading" constant="20" id="v6Q-2U-Aex"/>
+                                            <constraint firstAttribute="trailing" secondItem="01X-L1-7ZW" secondAttribute="trailing" constant="20" id="vW2-L1-Qya"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Z3v-6B-Wsh"/>
+                                    <constraint firstAttribute="bottom" secondItem="LHj-Vx-CJ9" secondAttribute="bottom" id="1PP-Ty-15S"/>
+                                    <constraint firstItem="LHj-Vx-CJ9" firstAttribute="leading" secondItem="oVt-7g-bep" secondAttribute="leading" id="aMq-z3-EQY"/>
+                                    <constraint firstAttribute="trailing" secondItem="LHj-Vx-CJ9" secondAttribute="trailing" id="e2x-dW-dCY"/>
+                                    <constraint firstItem="LHj-Vx-CJ9" firstAttribute="top" secondItem="oVt-7g-bep" secondAttribute="top" id="tme-L2-chD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="01X-L1-7ZW" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="218" width="374" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="FW6-0Q-FP8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SYS-fN-EMh" customClass="customTextView" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="363" width="374" height="273"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="273" id="aVw-LV-QcR"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary / notes: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fl6-FP-4Vw" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="323" width="374" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="kXe-72-GvD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YIL-iw-ee6" customClass="CustomLabel" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="118" width="374" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="sE0-tY-7wZ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ug0-aN-Iup" customClass="CustomTextField" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="263" width="374" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="CYf-fT-AUL"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lgz-HI-4tu" customClass="CustomButton" customModule="Bookie___Session_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="20" y="646" width="374" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="D8P-iX-Gm0"/>
-                                </constraints>
-                                <state key="normal" title="Done"/>
-                                <connections>
-                                    <action selector="doneButtonPressed:" destination="jyH-tR-2OX" eventType="touchUpInside" id="4x2-DY-dsT"/>
-                                </connections>
-                            </button>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zQG-bE-1MI" firstAttribute="top" secondItem="YIL-iw-ee6" secondAttribute="bottom" constant="10" id="1I1-3n-Jhi"/>
-                            <constraint firstItem="fl6-FP-4Vw" firstAttribute="top" secondItem="Ug0-aN-Iup" secondAttribute="bottom" constant="10" id="5sC-40-Hv1"/>
-                            <constraint firstItem="Ug0-aN-Iup" firstAttribute="leading" secondItem="Jut-Fh-I9z" secondAttribute="leading" constant="20" id="62d-Ng-tlp"/>
-                            <constraint firstItem="SYS-fN-EMh" firstAttribute="leading" secondItem="Jut-Fh-I9z" secondAttribute="leading" constant="20" id="Bgr-uV-z8E"/>
-                            <constraint firstItem="YIL-iw-ee6" firstAttribute="leading" secondItem="Jut-Fh-I9z" secondAttribute="leading" constant="20" id="CDh-B3-t0r"/>
-                            <constraint firstItem="Jut-Fh-I9z" firstAttribute="trailing" secondItem="Ug0-aN-Iup" secondAttribute="trailing" constant="20" id="D1c-XZ-zbG"/>
-                            <constraint firstItem="01X-L1-7ZW" firstAttribute="top" secondItem="zQG-bE-1MI" secondAttribute="bottom" constant="10" id="D4p-PI-AiB"/>
-                            <constraint firstItem="01X-L1-7ZW" firstAttribute="leading" secondItem="Jut-Fh-I9z" secondAttribute="leading" constant="20" id="KT6-cI-FCw"/>
-                            <constraint firstItem="Lgz-HI-4tu" firstAttribute="leading" secondItem="Jut-Fh-I9z" secondAttribute="leading" constant="20" id="KcW-c7-4g1"/>
-                            <constraint firstItem="zQG-bE-1MI" firstAttribute="leading" secondItem="Jut-Fh-I9z" secondAttribute="leading" constant="20" id="LKc-qg-B6w"/>
-                            <constraint firstItem="Jut-Fh-I9z" firstAttribute="trailing" secondItem="fl6-FP-4Vw" secondAttribute="trailing" constant="20" id="LR8-go-j7E"/>
-                            <constraint firstItem="YIL-iw-ee6" firstAttribute="top" secondItem="Jut-Fh-I9z" secondAttribute="top" constant="30" id="Nip-8y-30e"/>
-                            <constraint firstItem="fl6-FP-4Vw" firstAttribute="leading" secondItem="Jut-Fh-I9z" secondAttribute="leading" constant="20" id="dVY-Of-k34"/>
-                            <constraint firstItem="Lgz-HI-4tu" firstAttribute="top" secondItem="SYS-fN-EMh" secondAttribute="bottom" constant="10" id="fjV-dF-exY"/>
-                            <constraint firstItem="Jut-Fh-I9z" firstAttribute="trailing" secondItem="SYS-fN-EMh" secondAttribute="trailing" constant="20" id="iKg-tz-zFs"/>
-                            <constraint firstItem="Jut-Fh-I9z" firstAttribute="trailing" secondItem="Lgz-HI-4tu" secondAttribute="trailing" constant="20" id="jxH-zG-zvh"/>
-                            <constraint firstItem="Jut-Fh-I9z" firstAttribute="trailing" secondItem="01X-L1-7ZW" secondAttribute="trailing" constant="20" id="l6Q-IL-gTE"/>
-                            <constraint firstItem="SYS-fN-EMh" firstAttribute="top" secondItem="fl6-FP-4Vw" secondAttribute="bottom" constant="10" id="mWz-Te-4AT"/>
-                            <constraint firstItem="Ug0-aN-Iup" firstAttribute="top" secondItem="01X-L1-7ZW" secondAttribute="bottom" constant="15" id="q5Q-Oa-wRT"/>
-                            <constraint firstItem="Jut-Fh-I9z" firstAttribute="trailing" secondItem="YIL-iw-ee6" secondAttribute="trailing" constant="20" id="wUW-5h-dtf"/>
-                            <constraint firstItem="Jut-Fh-I9z" firstAttribute="trailing" secondItem="zQG-bE-1MI" secondAttribute="trailing" constant="20" id="wgc-T2-3cS"/>
+                            <constraint firstItem="LHj-Vx-CJ9" firstAttribute="width" secondItem="Pjq-uB-OPK" secondAttribute="width" id="2qX-4J-gEU"/>
+                            <constraint firstItem="oVt-7g-bep" firstAttribute="leading" secondItem="Jut-Fh-I9z" secondAttribute="leading" id="2qw-1W-PCP"/>
+                            <constraint firstItem="oVt-7g-bep" firstAttribute="top" secondItem="Jut-Fh-I9z" secondAttribute="top" id="TrQ-oC-baf"/>
+                            <constraint firstItem="01X-L1-7ZW" firstAttribute="centerX" secondItem="Jut-Fh-I9z" secondAttribute="centerX" id="dZK-eB-nZl"/>
+                            <constraint firstItem="oVt-7g-bep" firstAttribute="trailing" secondItem="Jut-Fh-I9z" secondAttribute="trailing" id="kk4-uk-Z3l"/>
+                            <constraint firstAttribute="bottom" secondItem="oVt-7g-bep" secondAttribute="bottom" id="q16-lO-epj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Jut-Fh-I9z"/>
                     </view>
@@ -431,6 +454,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <size key="freeformSize" width="414" height="900"/>
                     <connections>
                         <outlet property="bookTitleLabel" destination="zQG-bE-1MI" id="Q6y-tq-uhr"/>
                         <outlet property="currentTime" destination="01X-L1-7ZW" id="4hY-t4-Y8r"/>
@@ -441,7 +465,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBm-9e-cjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2906" y="-264"/>
+            <point key="canvasLocation" x="2905.5999999999999" y="-264.46776611694156"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wH7-Ci-qzX">
@@ -449,7 +473,7 @@
                 <navigationController storyboardIdentifier="mainNavController" automaticallyAdjustsScrollViewInsets="NO" id="4gi-IF-kKc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RtY-Uf-eaH">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -470,7 +494,7 @@
         <image name="levi-saunders-71726" width="5184" height="3456"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="b6H-Hc-jp0"/>
+        <segue reference="fLP-dy-8tO"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
