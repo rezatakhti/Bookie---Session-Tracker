@@ -25,6 +25,10 @@ class MainViewController: UIViewController {
 //        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MainViewController.imageTapped(gesture:)))
 //        newSessionImageView.addGestureRecognizer(tapGesture)
         newSessionImageView.isUserInteractionEnabled = true
+         navigationController?.navigationBar.barTintColor = UIColor.flatLime()
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
         
 //        pastSessionsImageView.addGestureRecognizer(tapGesture)
         pastSessionsImageView.isUserInteractionEnabled = true

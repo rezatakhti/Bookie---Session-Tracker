@@ -20,11 +20,15 @@ class PastSessionsTableViewController: UITableViewController {
         tableView.reloadData()
         tableView.rowHeight = 100.0
         tableView.allowsMultipleSelectionDuringEditing = true
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.showEditing(sender:)))
+
         self.navigationItem.rightBarButtonItem = editButton
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+        
+       self.tableView.backgroundColor = UIColor.flatGray()
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -76,7 +80,9 @@ class PastSessionsTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     
-    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pastSessionsArray.count
     }
@@ -86,7 +92,11 @@ class PastSessionsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionsCell", for: indexPath) as! SessionsCell
         cell.delegate = self
         let session = pastSessionsArray[indexPath.row]
-        cell.sessionLabel.text = session.startTime
+        cell.sessionLabel.text = session.bookTitle
+        cell.sessionLabel.textColor = UIColor.white
+        cell.dateLabel.text = session.startTime
+        cell.dateLabel.textColor = UIColor.white
+        
         return cell
     }
     

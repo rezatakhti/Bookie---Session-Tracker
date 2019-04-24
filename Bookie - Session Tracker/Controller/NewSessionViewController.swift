@@ -24,6 +24,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
         super.viewDidLoad()
         setBackground()
         loadTextField()
+        navigationController?.navigationBar.prefersLargeTitles = false 
         //setting the delegate of the text field
         bookNameTextField.delegate = self
         pageNumTextField.delegate = self
