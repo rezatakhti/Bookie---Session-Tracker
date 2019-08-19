@@ -41,7 +41,14 @@ class SessionDetailController: UIViewController {
             summaryLabel.text = "Summary: " + summary
         }
         bookTitleLabel.text = "Book Title: " + (selectedSession?.bookTitle)!
+        self.title = selectedSession?.bookTitle
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     func setBackground(){
         view.addSubview(backgroundImageView)
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false

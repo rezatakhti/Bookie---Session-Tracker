@@ -115,7 +115,7 @@ class DuringSessionViewController: UIViewController, UITextFieldDelegate{
         endPageNumberTextField.delegate = self
         endPageNumberTextField.placeholder = "End Page Number Here"
         self.endPageNumberTextField.keyboardType = UIKeyboardType.numberPad
-        navigationController?.navigationBar.prefersLargeTitles = true
+        
         //move the textview up so we can type and see what we're typing
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil);
          NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil);
@@ -127,6 +127,8 @@ class DuringSessionViewController: UIViewController, UITextFieldDelegate{
         }
         
     }
+    
+    
     
     func loadDataIntoView(){
         if isInSession{

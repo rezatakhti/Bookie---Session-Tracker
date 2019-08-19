@@ -13,9 +13,12 @@ class PastSessionsTableViewController: UITableViewController {
     
     var pastSessionsArray = [CurrentSession]()
     var selectedSessions = [IndexPath : CurrentSession]()
+    let defaults = UserDefaults.standard
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         pastSessionsArray = CoreDataManager.sharedManager.loadItems()
         tableView.reloadData()
         tableView.rowHeight = 100.0
@@ -23,12 +26,12 @@ class PastSessionsTableViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.showEditing(sender:)))
-
+        
         self.navigationItem.rightBarButtonItem = editButton
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
-       self.tableView.backgroundColor = UIColor.flatGray()
+        self.tableView.backgroundColor = UIColor.flatGray()
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -78,6 +81,13 @@ class PastSessionsTableViewController: UITableViewController {
         navigationController?.setToolbarHidden(true, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        if let index = self.tableView.indexPathForSelectedRow{
+            self.tableView.deselectRow(at: index, animated: true)
+        }
+    }
+    
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -85,11 +95,33 @@ class PastSessionsTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pastSessionsArray.count
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        var rowHeight:CGFloat = 0.0
+        //if currently in session we do not want to display current session as past session
+        let isInSession = defaults.bool(forKey: "isInSession")
+        if(isInSession && indexPath.row == pastSessionsArray.count - 1)
+        {
+            rowHeight = 0.0
+        } else {
+            rowHeight = 100.0
+        }
+        return rowHeight
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "SessionsCell", for: indexPath) as! SessionsCell
+        let isInSession = defaults.bool(forKey: "isInSession")
+        //if currently in session we do not want to display current session as past session
+        if(isInSession && indexPath.row == pastSessionsArray.count - 1){
+            cell.isHidden = true
+        }
+        else{
+            cell.isHidden = false
+        }
+        
         cell.delegate = self
         let session = pastSessionsArray[indexPath.row]
         cell.sessionLabel.text = session.bookTitle
@@ -98,6 +130,7 @@ class PastSessionsTableViewController: UITableViewController {
         cell.dateLabel.textColor = UIColor.white
         
         return cell
+        
     }
     
     // MARK: - Data Model Manipulation Methods
