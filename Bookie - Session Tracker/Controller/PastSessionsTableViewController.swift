@@ -28,6 +28,17 @@ class PastSessionsTableViewController: UITableViewController {
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.showEditing(sender:)))
         
         self.navigationItem.rightBarButtonItem = editButton
+        
+        if #available(iOS 13.0, *){
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.backgroundColor = UIColor.flatLime()
+            navBarAppearance.titleTextAttributes = [ .foregroundColor : UIColor.white]
+            navBarAppearance.largeTitleTextAttributes = [ .foregroundColor : UIColor.white]
+            navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+            navigationController?.navigationBar.standardAppearance = navBarAppearance
+            
+        }
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -79,6 +90,7 @@ class PastSessionsTableViewController: UITableViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.setToolbarHidden(true, animated: true)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {

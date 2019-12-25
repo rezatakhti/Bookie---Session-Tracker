@@ -127,9 +127,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
                 
                 let startTime = String(year) + "-" + String(month) + "-" + String(day) + " " + String(hour) + ":" + stringMinute + timeOfDay
                 destinationVC.date = startTime
-                
-              
-                
+            
                 let newReadingSession = CurrentSession(context: CoreDataManager.sharedManager.context)
                 newReadingSession.bookTitle = destinationVC.bookTitle
                 newReadingSession.startPageNumber = Int64(destinationVC.pageNumber)
@@ -141,11 +139,7 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
                 let action = UIAlertAction(title: "Okay", style: .default)
                 alert.addAction(action)
                 present(alert,animated: true, completion: nil)
-                
-    
             }
-            
-            
         }
     }
 }
