@@ -9,4 +9,4 @@ Bookie is an app that allows you to track each time you read, so you can track b
 * Persisting larger data using a Singleton Core Data 
 * Passing info between view controllers using Delegates and Protocols 
 * Creating custom buttons, labels, and textfields 
-* Constraints using Autolayout 
+* Constraints using Autolayout, and NSLayoutAnchor
