@@ -488,6 +488,7 @@
                         <outlet property="currentTime" destination="01X-L1-7ZW" id="4hY-t4-Y8r"/>
                         <outlet property="endPageNumberTextField" destination="Ug0-aN-Iup" id="PUP-UG-bd6"/>
                         <outlet property="pageNumberLabel" destination="YIL-iw-ee6" id="wi0-1G-KVg"/>
+                        <outlet property="scrollView" destination="oVt-7g-bep" id="2RW-j7-jQq"/>
                         <outlet property="summaryTextView" destination="SYS-fN-EMh" id="r0E-Pb-P1x"/>
                     </connections>
                 </viewController>

@@ -17,29 +17,21 @@ class MainViewController: UIViewController {
     
     let defaults = UserDefaults.standard
    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
         
         // Do any additional setup after loading the view, typically from a nib.
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(MainViewController.imageTapped(gesture:)))
-//        newSessionImageView.addGestureRecognizer(tapGesture)
         newSessionImageView.isUserInteractionEnabled = true
          navigationController?.navigationBar.barTintColor = UIColor.flatLime()
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
-//        pastSessionsImageView.addGestureRecognizer(tapGesture)
+
         pastSessionsImageView.isUserInteractionEnabled = true
         
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-      
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,14 +49,6 @@ class MainViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    
-//    @objc func imageTapped(gesture: UIGestureRecognizer){
-//        // if the tapped view is a UIImageView then set it to imageview
-//        if(gesture.view as? UIImageView) != nil{
-//            print("Image Tapped")
-//            //Here you can initiate your new ViewController
-//        }
-//    }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first{

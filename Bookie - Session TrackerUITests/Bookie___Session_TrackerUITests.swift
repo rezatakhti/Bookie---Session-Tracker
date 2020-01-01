@@ -25,9 +25,8 @@ class ___FILEBASENAMEASIDENTIFIER___: XCTestCase {
             
         
         let app = XCUIApplication()
-        app.buttons["click here"].tap()
-        app.images["levi-saunders-71726"].tap()
-        snapshot("03PastSessions")
+        
+        snapshot("04GuideView")
         
         // Use recording to get started writing UI tests.
                 // Use XCTAssert and related functions to verify your tests produce the correct results.

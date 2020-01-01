@@ -14,6 +14,7 @@ protocol startNewSessionDelegate{
 
 class DuringSessionViewController: UIViewController, UITextFieldDelegate{
     
+    
     var delegate : startNewSessionDelegate?
     var currentSessionArray = [CurrentSession]()
     var currentSession : CurrentSession?
@@ -23,7 +24,7 @@ class DuringSessionViewController: UIViewController, UITextFieldDelegate{
     var bookTitle = ""
     var date = ""
     
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var summaryTextView: UITextView!
     @IBOutlet var pageNumberLabel: CustomLabel!
     @IBOutlet var bookTitleLabel: CustomLabel!
@@ -33,6 +34,39 @@ class DuringSessionViewController: UIViewController, UITextFieldDelegate{
     
     let backgroundImageView = UIImageView()
     
+    override func viewDidLoad() {
+         super.viewDidLoad()
+         setBackground()
+         loadDataIntoView()
+         setupBookTitleLabel()
+         setupTextField()
+         scrollView.delegate = self
+         
+         //move the textview up so we can type and see what we're typing
+         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil);
+          NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil);
+         // Do any additional setup after loading the view.
+         let Tap = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
+         view.addGestureRecognizer(Tap)
+         if let rootVC = navigationController?.viewControllers.first{
+             navigationController?.viewControllers = [rootVC, self]
+         }
+         
+     }
+    
+    func setupTextField(){
+        endPageNumberTextField.delegate = self
+        endPageNumberTextField.placeholder = "End Page Number Here"
+        endPageNumberTextField.keyboardType = UIKeyboardType.numberPad
+    }
+    
+    func setupBookTitleLabel(){
+        bookTitleLabel.lineBreakMode = .byWordWrapping
+        bookTitleLabel.numberOfLines = 0
+        bookTitleLabel.sizeToFit()
+    }
+     
+
     @IBAction func cancelButtonPressed(_ sender: Any) {
      
         let alert = UIAlertController(title: "Cancel", message: "Are you sure you want to cancel? This will delete your current session.", preferredStyle: .alert)
@@ -90,45 +124,7 @@ class DuringSessionViewController: UIViewController, UITextFieldDelegate{
         return true
     }
     
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-//        if (self.isMovingFromParent)
-//        {
-//            let alert = UIAlertController(title: "Cancel", message: "Are you sure you want to cancel?", preferredStyle: .alert)
-//            let action = UIAlertAction(title: "Yes", style: .default)
-//           // let action2 = UIAlertAction(title: "No", style: .default)
-//            alert.addAction(action)
-//           // alert.addAction(action2)
-//            self.present(alert,animated: true, completion: nil)
-//            print("hipota444444to")
-//        }
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setBackground()
-        loadDataIntoView()
-        
-        bookTitleLabel.lineBreakMode = .byWordWrapping
-        bookTitleLabel.numberOfLines = 0
-        bookTitleLabel.sizeToFit()
-        endPageNumberTextField.delegate = self
-        endPageNumberTextField.placeholder = "End Page Number Here"
-        self.endPageNumberTextField.keyboardType = UIKeyboardType.numberPad
-        
-        //move the textview up so we can type and see what we're typing
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil);
-         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil);
-        // Do any additional setup after loading the view.
-        let Tap = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
-        view.addGestureRecognizer(Tap)
-        if let rootVC = navigationController?.viewControllers.first{
-            navigationController?.viewControllers = [rootVC, self]
-        }
-        
-    }
-    
-    
+ 
     
     func loadDataIntoView(){
         if isInSession{
@@ -240,14 +236,11 @@ class DuringSessionViewController: UIViewController, UITextFieldDelegate{
         }
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
+}
+
+extension DuringSessionViewController : UIScrollViewDelegate{
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
 }

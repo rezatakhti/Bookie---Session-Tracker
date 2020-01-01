@@ -18,7 +18,7 @@ class PastSessionsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.largeTitleDisplayMode = .always
         pastSessionsArray = CoreDataManager.sharedManager.loadItems()
         tableView.reloadData()
         tableView.rowHeight = 100.0
@@ -47,6 +47,7 @@ class PastSessionsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+
     
     @IBAction func trashButtonPressed(_ sender: Any) {
         let alert = UIAlertController(title: "Delete", message: "Are you sure you want to delete these sessions?", preferredStyle: .alert)
@@ -88,10 +89,6 @@ class PastSessionsTableViewController: UITableViewController {
     }
     
     
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.setToolbarHidden(true, animated: true)
-
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
