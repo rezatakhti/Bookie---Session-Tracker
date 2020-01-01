@@ -26,7 +26,7 @@ class PastSessionsTableViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.showEditing(sender:)))
-        
+        editButton.tintColor = .white
         self.navigationItem.rightBarButtonItem = editButton
         
         if #available(iOS 13.0, *){
@@ -36,7 +36,8 @@ class PastSessionsTableViewController: UITableViewController {
             navBarAppearance.largeTitleTextAttributes = [ .foregroundColor : UIColor.white]
             navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
             navigationController?.navigationBar.standardAppearance = navBarAppearance
-            
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+            navigationItem.backBarButtonItem?.tintColor = .white
         }
         
         // Uncomment the following line to preserve selection between presentations

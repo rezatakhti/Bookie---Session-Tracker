@@ -54,11 +54,11 @@
 		6C67C456239C65FD00C7A6CB /* GuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideViewController.swift; sourceTree = "<group>"; };
 		6C67C458239CD12600C7A6CB /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		6C67C45A239D9FFE00C7A6CB /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
-		6C67C460239DA5F900C7A6CB /* Bookie - Session TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bookie - Session TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C67C460239DA5F900C7A6CB /* BookieUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookieUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C67C462239DA5F900C7A6CB /* Bookie___Session_TrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bookie___Session_TrackerUITests.swift"; sourceTree = "<group>"; };
 		6C67C464239DA5F900C7A6CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6C67C46D239DAA8D00C7A6CB /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
-		6C7AA0C6221537C600E82C8E /* Bookie - Session Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bookie - Session Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C7AA0C6221537C600E82C8E /* Bookie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bookie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C7AA0C9221537C600E82C8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C7AA0CB221537C600E82C8E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6C7AA0CE221537C600E82C8E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 		6C7AA0C7221537C600E82C8E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6C7AA0C6221537C600E82C8E /* Bookie - Session Tracker.app */,
-				6C67C460239DA5F900C7A6CB /* Bookie - Session TrackerUITests.xctest */,
+				6C7AA0C6221537C600E82C8E /* Bookie.app */,
+				6C67C460239DA5F900C7A6CB /* BookieUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,9 +195,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6C67C45F239DA5F900C7A6CB /* Bookie - Session TrackerUITests */ = {
+		6C67C45F239DA5F900C7A6CB /* BookieUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C67C467239DA5F900C7A6CB /* Build configuration list for PBXNativeTarget "Bookie - Session TrackerUITests" */;
+			buildConfigurationList = 6C67C467239DA5F900C7A6CB /* Build configuration list for PBXNativeTarget "BookieUITests" */;
 			buildPhases = (
 				6C67C45C239DA5F900C7A6CB /* Sources */,
 				6C67C45D239DA5F900C7A6CB /* Frameworks */,
@@ -208,14 +208,14 @@
 			dependencies = (
 				6C67C466239DA5F900C7A6CB /* PBXTargetDependency */,
 			);
-			name = "Bookie - Session TrackerUITests";
+			name = BookieUITests;
 			productName = "Bookie - Session TrackerUITests";
-			productReference = 6C67C460239DA5F900C7A6CB /* Bookie - Session TrackerUITests.xctest */;
+			productReference = 6C67C460239DA5F900C7A6CB /* BookieUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
-		6C7AA0C5221537C600E82C8E /* Bookie - Session Tracker */ = {
+		6C7AA0C5221537C600E82C8E /* Bookie */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6C7AA0DB221537C800E82C8E /* Build configuration list for PBXNativeTarget "Bookie - Session Tracker" */;
+			buildConfigurationList = 6C7AA0DB221537C800E82C8E /* Build configuration list for PBXNativeTarget "Bookie" */;
 			buildPhases = (
 				A178F54F0EBE3D337DA8EE59 /* [CP] Check Pods Manifest.lock */,
 				6C7AA0C2221537C600E82C8E /* Sources */,
@@ -227,9 +227,9 @@
 			);
 			dependencies = (
 			);
-			name = "Bookie - Session Tracker";
+			name = Bookie;
 			productName = "Bookie - Session Tracker";
-			productReference = 6C7AA0C6221537C600E82C8E /* Bookie - Session Tracker.app */;
+			productReference = 6C7AA0C6221537C600E82C8E /* Bookie.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -252,7 +252,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6C7AA0C1221537C600E82C8E /* Build configuration list for PBXProject "Bookie - Session Tracker" */;
+			buildConfigurationList = 6C7AA0C1221537C600E82C8E /* Build configuration list for PBXProject "Bookie" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -265,8 +265,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6C7AA0C5221537C600E82C8E /* Bookie - Session Tracker */,
-				6C67C45F239DA5F900C7A6CB /* Bookie - Session TrackerUITests */,
+				6C7AA0C5221537C600E82C8E /* Bookie */,
+				6C67C45F239DA5F900C7A6CB /* BookieUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -379,7 +379,7 @@
 /* Begin PBXTargetDependency section */
 		6C67C466239DA5F900C7A6CB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6C7AA0C5221537C600E82C8E /* Bookie - Session Tracker */;
+			target = 6C7AA0C5221537C600E82C8E /* Bookie */;
 			targetProxy = 6C67C465239DA5F900C7A6CB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -502,6 +502,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -556,6 +557,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -603,7 +605,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6C67C467239DA5F900C7A6CB /* Build configuration list for PBXNativeTarget "Bookie - Session TrackerUITests" */ = {
+		6C67C467239DA5F900C7A6CB /* Build configuration list for PBXNativeTarget "BookieUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C67C468239DA5F900C7A6CB /* Debug */,
@@ -612,7 +614,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C7AA0C1221537C600E82C8E /* Build configuration list for PBXProject "Bookie - Session Tracker" */ = {
+		6C7AA0C1221537C600E82C8E /* Build configuration list for PBXProject "Bookie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C7AA0D9221537C800E82C8E /* Debug */,
@@ -621,7 +623,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6C7AA0DB221537C800E82C8E /* Build configuration list for PBXNativeTarget "Bookie - Session Tracker" */ = {
+		6C7AA0DB221537C800E82C8E /* Build configuration list for PBXNativeTarget "Bookie" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6C7AA0DC221537C800E82C8E /* Debug */,

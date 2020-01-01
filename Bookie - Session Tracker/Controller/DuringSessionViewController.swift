@@ -33,6 +33,7 @@ class DuringSessionViewController: UIViewController, UITextFieldDelegate{
     
     
     let backgroundImageView = UIImageView()
+    let darkOverlay = UIView()
     
     override func viewDidLoad() {
          super.viewDidLoad()
@@ -41,7 +42,7 @@ class DuringSessionViewController: UIViewController, UITextFieldDelegate{
          setupBookTitleLabel()
          setupTextField()
          scrollView.delegate = self
-         
+         darkenBackground()
          //move the textview up so we can type and see what we're typing
          NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil);
           NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil);
@@ -51,8 +52,35 @@ class DuringSessionViewController: UIViewController, UITextFieldDelegate{
          if let rootVC = navigationController?.viewControllers.first{
              navigationController?.viewControllers = [rootVC, self]
          }
-         
+        setupNavBar()
      }
+    
+    func setupNavBar(){
+        if #available(iOS 13.0, *){
+            let navBarAppearance = UINavigationBarAppearance()
+            navBarAppearance.backgroundColor = UIColor.flatLime()
+            navBarAppearance.titleTextAttributes = [ .foregroundColor : UIColor.white]
+            navBarAppearance.largeTitleTextAttributes = [ .foregroundColor : UIColor.white]
+            navigationController?.navigationBar.scrollEdgeAppearance = navBarAppearance
+            navigationController?.navigationBar.standardAppearance = navBarAppearance
+            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationItem.largeTitleDisplayMode = .always
+            navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+    }
+    
+    func darkenBackground(){
+        view.addSubview(darkOverlay)
+        view.sendSubviewToBack(darkOverlay)
+        view.sendSubviewToBack(backgroundImageView)
+        darkOverlay.backgroundColor = .black
+        darkOverlay.alpha = 0.4
+        darkOverlay.translatesAutoresizingMaskIntoConstraints = false
+        darkOverlay.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        darkOverlay.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        darkOverlay.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        darkOverlay.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
     
     func setupTextField(){
         endPageNumberTextField.delegate = self

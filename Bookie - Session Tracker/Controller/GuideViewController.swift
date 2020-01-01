@@ -10,11 +10,14 @@ import UIKit
 
 class GuideViewController: UIViewController {
     
+    let defaults = UserDefaults.standard
+    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 0
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.showsHorizontalScrollIndicator = false
         cv.dataSource = self
         cv.delegate = self
         cv.isPagingEnabled = true
@@ -139,7 +142,7 @@ class GuideViewController: UIViewController {
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: -10).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50).isActive = true
         
         pageIndicator.translatesAutoresizingMaskIntoConstraints = false
         pageIndicator.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -198,6 +201,7 @@ extension GuideViewController : UICollectionViewDataSource {
     }
     
     @objc func BeginButtonPressed(){
+        defaults.set(true, forKey: "onboardingDone")
         let mainViewController = storyboard?.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         let navController = UINavigationController(rootViewController: mainViewController)
         navController.modalPresentationStyle = .fullScreen
@@ -207,9 +211,6 @@ extension GuideViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: view.frame.width, height: view.frame.height)
     }
-    
-    
-    
 }
 
 extension GuideViewController : UICollectionViewDelegate{

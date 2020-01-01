@@ -16,13 +16,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        let defaults = UserDefaults.standard
-//        let isInSession = defaults.bool(forKey: "isInSession")
-//        if isInSession {
+        window = UIWindow()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let navigationController = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+        let defaults = UserDefaults.standard
+        let onboardingDone = defaults.bool(forKey: "onboardingDone")
+        if !onboardingDone {
+            print("needs onboarding")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "GuideViewController")
+            navigationController.viewControllers = [initialViewController]
+            
+        }else{
+            print("doesn't need onboarding")
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController")
+            navigationController.viewControllers = [initialViewController]
+        }
+        
+       
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        
 //            print("Currently in a session")
 //            self.window = UIWindow(frame: UIScreen.main.bounds)
 //            
-//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//
 //            let navigationController = storyboard.instantiateViewController(withIdentifier: "mainNavController") as! UINavigationController
 //            let initialViewController = storyboard.instantiateViewController(withIdentifier: "duringSessionViewController") as UIViewController
 //            navigationController.viewControllers = [initialViewController]

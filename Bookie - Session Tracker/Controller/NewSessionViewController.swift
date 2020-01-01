@@ -24,7 +24,10 @@ class NewSessionViewController: UIViewController, UITextFieldDelegate,  startNew
         super.viewDidLoad()
         setBackground()
         loadTextField()
-        navigationController?.navigationBar.prefersLargeTitles = false 
+        navigationItem.largeTitleDisplayMode = .never
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = .white
         //setting the delegate of the text field
         bookNameTextField.delegate = self
         pageNumTextField.delegate = self

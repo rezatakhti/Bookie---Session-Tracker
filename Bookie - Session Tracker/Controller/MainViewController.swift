@@ -21,20 +21,24 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         print(FileManager.default.urls(for: .documentDirectory, in: .userDomainMask))
         
-        
+        setupNavBar()
         // Do any additional setup after loading the view, typically from a nib.
         newSessionImageView.isUserInteractionEnabled = true
-         navigationController?.navigationBar.barTintColor = UIColor.flatLime()
+        pastSessionsImageView.isUserInteractionEnabled = true
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem?.tintColor = .white
+    }
+    
+    func setupNavBar(){
+        
+        navigationController?.navigationBar.barTintColor = UIColor.flatLime()
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.largeTitleTextAttributes = textAttributes
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-
-        pastSessionsImageView.isUserInteractionEnabled = true
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
         let isInSession = defaults.bool(forKey: "isInSession")
@@ -68,10 +72,6 @@ class MainViewController: UIViewController {
                 performSegue(withIdentifier: "goToPastSessions", sender: self)
             }
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
 }

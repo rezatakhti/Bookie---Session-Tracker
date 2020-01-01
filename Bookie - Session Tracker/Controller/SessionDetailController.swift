@@ -19,12 +19,16 @@ class SessionDetailController: UIViewController {
     
     var selectedSession : CurrentSession?
     let backgroundImageView = UIImageView()
+    let darkOverlay = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        darkenBackground()
         setBackground()
-        navigationItem.largeTitleDisplayMode = .never
+        navigationItem.largeTitleDisplayMode = .always
+       // navigationItem.backBarButtonItem?.tintColor = .white
+        
         // Do any additional setup after loading the view.
     }
     
@@ -45,6 +49,20 @@ class SessionDetailController: UIViewController {
         self.title = selectedSession?.bookTitle
 
     }
+    
+    func darkenBackground(){
+         view.addSubview(darkOverlay)
+         view.sendSubviewToBack(darkOverlay)
+         view.sendSubviewToBack(backgroundImageView)
+         darkOverlay.backgroundColor = .black
+         darkOverlay.alpha = 0.4
+         darkOverlay.translatesAutoresizingMaskIntoConstraints = false
+         darkOverlay.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+         darkOverlay.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+         darkOverlay.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+         darkOverlay.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+     }
+    
     func setBackground(){
         view.addSubview(backgroundImageView)
         backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,6 +75,7 @@ class SessionDetailController: UIViewController {
         backgroundImageView.contentMode = .scaleToFill
         backgroundImageView.superview?.sendSubviewToBack(backgroundImageView)
     }
+    
     /*
     // MARK: - Navigation
 
