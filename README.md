@@ -1,4 +1,5 @@
-# Bookie - Session Tracker
+# Bookie - Session Tracker 
+## On the [App Store](https://apps.apple.com/us/app/bookie-session-tracker/id1493326511?ls=1)
 
 Bookie is an app that allows you to track each time you read, so you can track both how much you read and how fast you read over a period of time.
 
